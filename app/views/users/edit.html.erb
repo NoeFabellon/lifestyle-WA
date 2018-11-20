@@ -1,0 +1,90 @@
+<% content_for :header do %>
+    <%= render 'shared/menu' %>
+<% end %>
+
+<% content_for :side do %>
+  <%= render 'shared/side' %>
+<% end %>
+
+<% content_for :content do %>
+  <div class="main uk-section">
+		<div class="uk-container">
+			<h2>Administration Information</h2>
+			<%= form_for :user, url: user_path(@user['id']), method: :put, remote: true do |f| %>
+				<div class="uk-container">
+					<fieldset class="uk-fieldset">
+						<div class="uk-margin uk-hidden">
+							<label class="uk-form-label" for="form-horizontal-text">Username</label>
+							<div class="uk-form-controls">
+								<%= f.text_field :username, class: 'uk-input', value: @user['username'], readonly:true %>
+							</div>
+						</div>
+						<div class="uk-margin uk-hidden">
+							<label class="uk-form-label" for="form-horizontal-text">Full Name</label>
+							<div class="uk-form-controls">
+								<%= f.text_field :fullName, class: 'uk-input', value: @user['fullName'], readonly:true %>
+							</div>
+						</div>
+						<div class="uk-margin">
+							<label class="uk-form-label" for="form-horizontal-text">Email</label>
+							<div class="uk-form-controls">
+								<%= f.text_field :email, class: 'uk-input', value: @user['email'], readonly:true %>
+							</div>
+						</div>
+						<div class="uk-margin">
+							<label class="uk-form-label" for="form-horizontal-text">First Name</label>
+							<div class="uk-form-controls">
+								<%= f.text_field :firstName, class: 'uk-input', value: @user['firstName'] %>
+							</div>
+						</div>
+						<div class="uk-margin">
+							<label class="uk-form-label" for="form-horizontal-text">Last Name</label>
+							<div class="uk-form-controls">
+								<%= f.text_field :lastName, class: 'uk-input', value: @user['lastName'] %>
+							</div>
+						</div>
+						<div class="uk-margin">
+							<label class="uk-form-label" for="form-horizontal-text">Password</label>
+							<div class="uk-form-controls">
+								<%= f.password_field :password, class: 'uk-input' %>
+							</div>
+						</div>
+						<div class="uk-margin">
+							<label class="uk-form-label" for="form-horizontal-text">Password Confirmation</label>
+							<div class="uk-form-controls">
+								<%= f.password_field :password_confirmation, class: 'uk-input' %>
+							</div>
+						</div>
+						<div class="uk-margin">
+							<label class="uk-form-label" for="form-horizontal-text">Roles</label>
+							<div class="uk-form-controls uk-hidden">
+								<%= f.text_field :roles, class: 'uk-input', value: @user['roles'] %>
+							</div>
+							<div class="uk-form-controls">
+								<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid" id="checkbox">
+									<label><input class="uk-checkbox" type="checkbox" value="ROLE_BACKOFFICE_ADMIN" id="administrator"> Administrator</label>
+									<label><input class="uk-checkbox" type="checkbox" value="ROLE_BACKOFFICE_USER" id="staff"> Staff</label>
+									<label><input class="uk-checkbox" type="checkbox" value="ROLE_BACKOFFICE_SALES" id="sales"> Sales</label>
+								</div>
+							</div>
+						</div>
+						<div class="uk-margin">
+							<label class="uk-form-label" for="form-horizontal-text">Status</label>
+							<div class="uk-form-controls uk-hidden">
+								<%= f.text_field :enabled, class: 'uk-input', value: @user['enabled'] %>
+							</div>
+							<div class="uk-form-controls">
+								<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+									<label><input class="uk-radio" type="radio" name="radio2" id="true"> Enabled</label>
+									<label><input class="uk-radio" type="radio" name="radio2" id="false"> Disabled</label>
+								</div>
+							</div>
+						</div>
+						<%= f.submit "Submit", class: "uk-button uk-button-primary"%>
+					</fieldset>
+				</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+  

@@ -7,18 +7,16 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    id = params[:id]
+    @user = send_authenticated_request("api/admins/#{id}", hash, 'get')
+  end
 
   def update
-    respond_to do |format|
-      if user_person_update
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :show }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    id = params[:id]
+    @user = send_authenticated_request("api/admins/#{id}", update_params, 'put')
+    
+
   end
 
   def new; end
@@ -55,7 +53,22 @@ class UsersController < ApplicationController
     }
   end
 
+  def update_params
+    {
+      username: params[:user]['username'],
+      email: params[:user]['email'],
+      firstName: params[:user]['firstName'],
+      lastName: params[:user]['lastName'],
+      fullName: "#{params[:user]['firstName']} #{params[:user]['lastName']}",
+      password: params[:user]['password'],
+      password_confirmation: params[:user]['password_confirmation'],
+      roles: JSON.parse(params[:user]['roles']),
+      enabled: (params[:user]['enabled'] == 'true')? true : false
+    }
+  end
+
   def user_person_update
     @user.person.update(person_hash) && @user.update(user_params)
   end
+
 end

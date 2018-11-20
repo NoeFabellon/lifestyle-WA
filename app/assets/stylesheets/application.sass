@@ -389,14 +389,12 @@ span.head
   padding-right: 1em
 
 //login email
-.login-input:focus
-  color: white
+#login .uk-input:focus
   background: 0,0
   border-bottom: 2px solid white
 
 
-
-.login-input
+#login .uk-input
   background: 0 0
   border: none
   box-shadow: none
@@ -408,7 +406,7 @@ span.head
 
 
 //login button
-.login-button
+#login .uk-button
   border-radius: 50px
   color: rgba(255, 255, 255, 0.8)
   background: $secondary
@@ -417,17 +415,17 @@ span.head
   line-height: 40px
   text-transform: none
 
-.login-button:hover
-  color: white
+#login .uk-button:hover
+  color: $background
   border: 2px solid white
   outline: none
   background-color: none
 
-.login-button:active, .login-button.uk-active 
+#login .uk-button-primary:active, .uk-button-primary.uk-active 
     background-color: none
     color: $background
 
-.login-button:hover
+#login .uk-button-primary:hover
   background-color: $secondary
 
 // side nav
