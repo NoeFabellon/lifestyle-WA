@@ -1,88 +1,28 @@
 <nav class="uk-navbar-container" uk-navbar>
-
-    <div class="uk-navbar-left">
-
-      <ul class="uk-navbar-nav">
-          <li class="uk-active">
-            <a href="#">
-              Bliimo Admin Module
-            </a>
-          </li>
-      </ul>
-
-    </div>
-
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li>
-
-        
-            <div class="uk-inline user-div">
-                <a class="uk-link uk-padding-small " href=""><span uk-icon="icon: user; ratio: .8" class="uk-margin-small-right uk-align-center"></span><span>Me Backoffice</span><span uk-icon="icon: triangle-down"></span></a>
-                <div uk-drop="mode: click" class="uk-margin-remove-top uk-width-small">
-                    <div class="uk-card uk-card-body uk-card-default uk-margin-remove-top uk-margin-remove-right uk-margin-remove-bottom">
-                      <%= link_to destroy_user_session_path, :method => :delete, class: 'logout-nav' do %><%= image_tag('poweroff.png', width:'18', class: 'uk-margin-small-left uk-margin-small-right poweroff-icon') %><span>Logout</span><%end%>
-                    </div>
-                </div>
-            </div>
-
-          
-          
-          <button class="uk-button uk-button-default  uk-hidden" type="button" uk-toggle="target: #offcanvas-nav">
-            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <rect y="9" width="20" height="2"></rect>
-              <rect y="3" width="20" height="2"></rect>
-              <rect y="15" width="20" height="2"></rect>
-            </svg>
-          </button>
-        </li>
-      </ul>
-
-    </div>
-
-</nav>
-
-<div class="uk-offcanvas-content">
-  <div id="offcanvas-nav" uk-offcanvas="overlay: true">
-    <div class="uk-offcanvas-bar">
-      <div class="uk-panel">
-        <h3 class="uk-panel-title">Bliimo Admin Module</h3>
-        <ul class="uk-nav">
-          <li>
-            <%= link_to 'Dashboards', authenticated_root_path %>
-          </li>
-          <li>
-            <%= link_to 'Evets', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Experiences', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Transactions', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Vouchers', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Reports', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Partners', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Categories', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Localities', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Audit Trail', '#' %>
-          </li>
-          <li>
-            <%= link_to 'Administrators', users_path %>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div class="uk-navbar-left">
+    <ul class="uk-navbar-nav">
+      <li><a href="#" class="brand-name"> Bliimo Admin Module </a></li>
+    </ul>
   </div>
-</div>
+  <div class="uk-navbar-right">
+    <ul class="uk-navbar-nav">
+      <li>
+        <div class="uk-inline user-div">
+          <a class="uk-link uk-padding-small mebackoffice-nav" href=""><span uk-icon="icon: user; ratio: .8" class="uk-margin-small-right uk-align-center"></span><span>Me Backoffice</span><span uk-icon="icon: triangle-down"></span></a>
+          <div uk-drop="mode: click" class="uk-margin-remove-top uk-width-small">
+            <div class="uk-card uk-card-body uk-card-default uk-margin-remove-top uk-margin-remove-right uk-margin-remove-bottom">
+              <%= link_to destroy_user_session_path, :method => :delete, class: 'logout-nav' do %><%= image_tag('poweroff.png', width:'18', class: 'uk-margin-small-left uk-margin-small-right poweroff-icon') %><span>Logout</span><%end%>
+            </div>
+          </div>
+        </div>
+        <button class="uk-button uk-button-default  uk-hidden" type="button" uk-toggle="target: #offcanvas-nav">
+          <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <rect y="9" width="20" height="2"></rect>
+            <rect y="3" width="20" height="2"></rect>
+            <rect y="15" width="20" height="2"></rect>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

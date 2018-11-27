@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
 
     http = Net::HTTP.new(uri.host, uri.port)
     req.body = hash.to_json
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     http.use_ssl = true
     res = http.request(req).body
     res = JSON[res] if res.present?
@@ -28,6 +29,7 @@ class ApplicationController < ActionController::Base
 
     http = Net::HTTP.new(uri.host, uri.port)
     req.body = hash.to_json
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     http.use_ssl = true
     res = http.request(req).body
     res = JSON[res] if res.present?

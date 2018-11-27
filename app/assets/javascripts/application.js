@@ -168,5 +168,30 @@ $(document).on('turbolinks:load', function () {
     $("#listing_contract_type option:nth-child(1)").attr({disabled:true});
     $("#listing_bedroom_type option:nth-child(1)").attr({disabled:true});
   
-  });
+    animateExp();
+    function animateExp(){ 
+      $('.side-nav').on('click', function(e){
+        if($(this).attr('id') === 'experiences-link'){
+          setTimeout(function(){ 
+            if($("#toggle-animation").attr('aria-hidden') == "false"){ 
+              $('#experiences-link').addClass('active-page');
+            }else{
+              $('#experiences-link').removeClass('active-page');
+            }
+          },300);
+          $('#active-page').attr('id','');
+        }
+        else{
+          $('#experiences-link').removeClass('active-page');
+          setTimeout(function(){
+            $(this).attr('id','');
+          },300);
+        }
+      });
+    }
+    
+    if(window.location.pathname.includes("events")){
+      $('#experiences-link').addClass('active-page');
+    }
+});
   

@@ -22,7 +22,8 @@ $hover: #0f0f6c
 $active: #080840
 $focus: #59e8b3
 $content: #f8f9fb
-
+$grayfont: #999
+$borderdefault: #e5e5e5
 
 @import "uikit/variables-theme.scss"
 @import "uikit/mixins-theme.scss"
@@ -31,10 +32,10 @@ $content: #f8f9fb
 html
   background: $background
 
-.uk-link
-  color: #999
+.mebackoffice-nav
+  color: $grayfont
 
-.uk-link:hover 
+.mebackoffice-nav:hover 
   color: white
   text-decoration: none
 
@@ -45,6 +46,9 @@ html
   margin-bottom: 5px
 
 .logout-nav
+  color:  black
+
+.logout-nav:hover
   color:  black
 
 a:hover
@@ -59,17 +63,29 @@ a:hover
   left: 0px
 
 .uk-navbar
-  background: $secondary !important
+  background: black !important
   padding: 0
   height: 55px
 
+.brand-name
+  color: white !important
+
+
 .uk-navbar-nav > li > a , .uk-nav > li > a
-  color: $link !important
+  color: $grayfont
   text-transform: none
   font-size: 20px
+  padding: 15px
 
-.uk-side .uk-nav > li > a 
-  padding: 15px 0
+.uk-navbar-nav > li > a , .uk-nav > li :hover
+  color: white
+  filter: contrast(-1)
+
+.side-nav:hover
+  background: $secondary
+
+.side-nav-icons
+  filter: contrast(0)
 
 //menu
 
@@ -138,8 +154,8 @@ a:hover
 
 .uk-button-default
     background-color: transparent
-    color: #222
-    border: 1px solid #e5e5e5
+    color: $secondary
+    border: 1px solid $borderdefault
 
 .uk-button-add-listing
   margin-right: 5%
@@ -229,7 +245,7 @@ a:hover
 .uk-modal-footer
   margin-top: 15px
   padding: 15px 30px
-  border-top: 1px solid #e5e5e5
+  border-top: 1px solid $borderdefault
   height: 35px
 
 .uk-modal
@@ -367,7 +383,7 @@ span.head
 .login-button
   border-radius: 50px
   color: rgba(255, 255, 255, 0.8)
-  background: #222
+  background: $secondary
   border: 2px solid rgba(255, 255, 255, 0.8)
   font-size: 18px
   line-height: 40px
@@ -384,9 +400,10 @@ span.head
     color: #fff
 
 .login-button:hover
-  background-color: #222
+  background-color: $secondary
 
 // side nav
+
 .uk-side
   position: fixed
   top: 54px
@@ -395,7 +412,7 @@ span.head
   width: 250px !important
   padding: 0px 20px
   overflow: auto
-  background: $secondary
+  background: black
 
 .side
   position: absolute
@@ -439,6 +456,27 @@ span.head
   background-size: contain
   cursor: pointer
 
+.experiences-category
+  font-size: 20px
+  color: $grayfont
+
+.experiences-category:hover
+  background: #444
+  color: black
+
+
+
+.active-page
+  color: white !important
+  background: $secondary
+
+#active-page
+  color: white !important
+  background: $secondary
+
+.active-expsubCat-page
+  color: white !important
+  background: $secondary
 
 //dashboard
 
@@ -538,5 +576,4 @@ span.head
 
 .localities-table
   border-top: 1px solid #d3d3d3
-
 
