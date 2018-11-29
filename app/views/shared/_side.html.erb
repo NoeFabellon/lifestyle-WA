@@ -1,41 +1,26 @@
-<div class="uk-side">
-	<ul class="uk-nav uk-nav-default uk-list uk-list-large">
-		<div class="uk-panel">
-			<ul class="uk-nav">
-				<li>
-					<%= link_to 'Dashboards', authenticated_root_path %>
-				</li>
-				<li>
-					<%= link_to 'Events', events_path %>
-				</li>
-				<li>
-					<%= link_to 'Experiences', '#' %>
-				</li>
-				<li>
-					<%= link_to 'Transactions', '#' %>
-				</li>
-				<li>
-					<%= link_to 'Vouchers', '#' %>
-				</li>
-				<li>
-					<%= link_to 'Reports', '#' %>
-				</li>
-				<li>
-					<%= link_to 'Partners', '#' %>
-				</li>
-				<li>
-					<%= link_to 'Categories', '#' %>
-				</li>
-				<li>
-					<%= link_to 'Localities', localities_path %>
-				</li>
-				<li>
-					<%= link_to 'Audit Trail', '#' %>
-				</li>
-				<li>
-					<%= link_to 'Administrators', users_path %>
-				</li>
-			</ul>
-		</div>
+<div class="uk-side uk-padding-remove">
+  <ul class="uk-nav uk-nav-default uk-list uk-list-large">
+    <div class="uk-panel">
+      <ul class="uk-nav">
+        <li><%= link_to authenticated_root_path, class: 'side-nav',id: active_page?(authenticated_root_path) do %><%= image_tag('white.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Dashboards</span><%end%></li>
+        <li>
+          <a href="#toggle-animation" id='experiences-link' class="side-nav" uk-toggle="target: #toggle-animation; mode: click; animation: uk-animation-fade"> <%= image_tag('experience-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Experiences</span> </a>
+        </li>
+          <div id="toggle-animation" class="uk-margin-medium-left">
+            <li><%= link_to '#', class: 'experiences-category' do %><%= image_tag('earth-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Travel</span><%end%></li>
+            <li><%= link_to '#', class: 'experiences-category' do %><%= image_tag('donut-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Food</span><%end%></li>
+            <li><%= link_to '#', class: 'experiences-category' do %><%= image_tag('home-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Lodging</span><%end%></li>
+            <li><%= link_to '#', class: 'experiences-category' do %><%= image_tag('bike-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Wellness</span><%end%></li>
+            <li><%= link_to events_path, class: 'experiences-category', id: active_page?(events_path) do %><%= image_tag('calendar-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Events</span><%end%></li>
+          </div>
+        <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('money-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Transactions</span> <%end%></li>
+        <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('report-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Reports</span> <%end%></li>
+        <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('partner-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Partners</span> <%end%></li>
+        <li><%= link_to localities_path, id: active_page?(localities_path), class: 'side-nav' do %><%= image_tag('location-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Localities</span> <%end%></li>
+        <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('category-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Categories</span> <%end%></li>
+        <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('audit-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Audit Trail</span> <%end%></li>
+        <li><%= link_to users_path , class: 'side-nav' do %><%= image_tag('admin-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Administrators</span> <%end%></li>
+      </ul>
+    </div>
   </ul>
 </div>
