@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :dashboards, only: :index
   resources :posts
   resources :localities
+  resources :travels
   resources :events
   resources :partners
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions",:omniauth_callbacks => "users/omniauth_callbacks"}

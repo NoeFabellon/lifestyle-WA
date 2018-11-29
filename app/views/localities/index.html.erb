@@ -1,6 +1,6 @@
 <% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
 <div class="main uk-section">
-  <div class="uk-container uk-container-expand uk-position-relative uk-padding-small">
+  <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
     <div class="uk-grid uk-margin-remove">
       <div class="uk-padding-remove"><h2>Localities</h2></div>
     </div>
@@ -19,7 +19,7 @@
             <span>Localities</span>
             <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Locality</span></button>
           </div>
-          <div class="uk-padding small">
+          <div class="uk-padding small table-content-container">
             <div class="content-well p-x-2 p-y-2">
               <div class="uk-container">
                 <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
@@ -57,6 +57,26 @@
                     <tr class="uk-padding-remove">
                       <td><%= image_tag('poweroff.png', width:'40') %></td>
                       <td>ANDA</td>
+                      <td></td>
+                      <td></td>
+                      <td>PHILIPPINES</td>
+                      <td>
+                        <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                      </td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td><%= image_tag('poweroff.png', width:'40') %></td>
+                      <td>ANDA</td>
+                      <td>BOHOL</td>
+                      <td></td>
+                      <td>PHILIPPINES</td>
+                      <td>
+                        <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                      </td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td><%= image_tag('poweroff.png', width:'40') %></td>
+                      <td>ANGELES</td>
                       <td></td>
                       <td></td>
                       <td>PHILIPPINES</td>
