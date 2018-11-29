@@ -1,0 +1,90 @@
+<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<div class="main uk-section">
+  <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
+    <div class="uk-grid uk-margin-remove">
+      <div class="uk-padding-remove"><h2>Wellness</h2></div>
+    </div>
+    <div class="uk-grid uk-margin-small-bottom uk-margin-remove-top uk-margin-remove-right uk-margin-remove-left breadcrumb uk-border-rounded">
+      <div class="uk-padding-small">
+        <ul class="uk-breadcrumb">
+          <li><%= image_tag('dashboard-icon.jpg', class: 'uk-icon-image') %><a href="/" class="uk-margin-small-left">Dashboard</a></li>
+          <li><span uk-icon="file-edit"></span><a href="#" class="uk-margin-small-left">Wellness</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="uk-grid uk-margin-remove uk-width-1-1">
+      <div class="uk-padding-remove uk-width-1-1">
+        <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+          <div class="uk-padding-small localities-panel-header">
+            <span>Wellness</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Wellness</span></button>
+          </div>
+          <div class="uk-padding small table-content-container">
+            <div class="content-well p-x-2 p-y-2">
+              <div class="uk-container">
+                <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
+                  <thead>
+                    <tr>
+                      <th class="uk-text-capitalize">Title</th>
+                      <th class="uk-text-capitalize">Category</th>
+                      <th class="uk-text-capitalize">SubCategory</th>
+                      <th class="uk-text-capitalize">Price</th>
+                      <th class="uk-text-capitalize">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">Laser Tag Tournament</td>
+                      <td>Extreme</td>
+                      <td>Combat Gaming</td>
+                      <td>4th level, Market! Market!, Bonifacio Global City, Taguig, 1634 Metro Manila, Philippines</td>
+                      <td>
+                        <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                      </td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">BlackPink Concert</td>
+                      <td>Extreme</td>
+                      <td>Combat Gaming</td>
+                      <td>4th level, Market! Market!, Bonifacio Global City, Taguig, 1634 Metro Manila, Philippines</td>
+                      <td>
+                        <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                      </td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">League of Legends Tournament</td>
+                      <td>Extreme</td>
+                      <td>Combat Gaming</td>
+                      <td>4th level, Market! Market!, Bonifacio Global City, Taguig, 1634 Metro Manila, Philippines</td>
+                      <td>
+                        <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                      </td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">Rules of Survival Tournament</td>
+                      <td>Extreme</td>
+                      <td>Combat Gaming</td>
+                      <td>4th level, Market! Market!, Bonifacio Global City, Taguig, 1634 Metro Manila, Philippines</td>
+                      <td>
+                        <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                      </td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">DOTA 2 Tournament</td>
+                      <td>Extreme</td>
+                      <td>Combat Gaming</td>
+                      <td>4th level, Market! Market!, Bonifacio Global City, Taguig, 1634 Metro Manila, Philippines</td>
+                      <td>
+                        <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
