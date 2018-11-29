@@ -196,6 +196,10 @@ $(document).on("turbolinks:load", function() {
     $("#experiences-link").addClass("active-page");
     $("#travel-nav-all").addClass("travel-active-link");
   }
+  if (window.location.pathname.includes("foods")) {
+    $("#experiences-link").addClass("active-page");
+    $("#food-nav-all").addClass("travel-active-link");
+  }
 
   $(".travel-nav-link").click(function(e) {
     // //remove all navlink color
