@@ -24,6 +24,28 @@ $focus: #59e8b3
 $content: #f8f9fb
 $grayfont: #999
 $borderdefault: #e5e5e5
+$experiencehover: #444
+$rowbookingborder: #ece9ea
+$rowbookingbackground: #f7f7f9
+$bookingitemborder: #ccc
+$earninglistborder: #d3d3d3
+$partnersbtnbackground: #00bd29
+$uklabelbackground: #e8ecf1
+$uklabelcolor: #656565
+$ukbtnmediumbackground: #1ea2bb
+$ukselctcolor: #8a8a8a
+$forminputimagebackground: #ecf4f7
+$forminputimageborder: #a9a9a9
+$btncolor: #8f8f8f
+$activelinkbackground: #026b84
+$uktabcolord: #636363
+$listingbackground: #a3c105
+$featureborder: #c2c2c2
+$ukbadgebackground: #edf4f7
+$ukbadgecolor: #828282
+$borderbottom: #5bc0de
+$breadcrumbbackground: #eceeef
+$partnersbtnhover: #009f22
 
 @import "uikit/variables-theme.scss"
 @import "uikit/mixins-theme.scss"
@@ -133,19 +155,20 @@ a:hover
   text-align: center
 
 // Listings
+
 .uk-label 
-    display: inline-block
-    padding: 0 10px
-    background: #e8ecf1
-    line-height: 1.5
-    font-size: 12px
-    color: #656565
-    vertical-align: middle
-    white-space: nowrap
-    border-radius: 2px
-    text-transform: uppercase
-    width: 12%
-    text-align: center
+  display: inline-block
+  padding: 0 10px
+  background: $uklabelbackground
+  line-height: 1.5
+  font-size: 12px
+  color: $uklabelcolor
+  vertical-align: middle
+  white-space: nowrap
+  border-radius: 2px
+  text-transform: uppercase
+  width: 12%
+  text-align: center
 
 .uk-child
   background: transparent
@@ -153,9 +176,9 @@ a:hover
   white-space: normal
 
 .uk-button-default
-    background-color: transparent
-    color: $secondary
-    border: 1px solid $borderdefault
+  background-color: transparent
+  color: $secondary
+  border: 1px solid $borderdefault
 
 .uk-button-add-listing
   margin-right: 5%
@@ -167,7 +190,7 @@ a:hover
   width: 30%
   margin-top: 25%
   margin-left: 5%
-  background: #1ea2bb 
+  background: $ukbtnmediumbackground
 
 #listing_price
   padding: 10px 10px 10px 25px
@@ -177,7 +200,7 @@ a:hover
   position: absolute
   left: 350px
   font-weight: bold
-  color: #444
+  color: $experiencehover
   top: 97px
   font-size: 15px
 
@@ -199,8 +222,8 @@ a:hover
 .uk-select
   width: 85%
   height: 40px
-  color: #8a8a8a
-  background: #ffffff
+  color: $ukselectcolor
+  background: $link
 
 .uk-select-small
   width: 60%
@@ -221,19 +244,19 @@ a:hover
   float: left
 
 .form-input-image
-  background: #ecf4f7
+  background: $forminputimagebackground
   width: 65%
-  border: 1px solid #a9a9a9
+  border: 1px solid $forminputimageborder
 
 .form-input-p
   background: white
   height: 60px
-  border-bottom: 1px solid #a9a9a9
+  border-bottom: 1px solid $forminputimageborder
 
 .form-input-upload-button
   width: 30%
   margin: 2%
-  color: #8f8f8f
+  color: $btncolor
   padding: 3px
 
 .uk-modal-dialog
@@ -252,14 +275,14 @@ a:hover
   overflow-y: unset !important
 
 .uk-tab li.uk-active a
-  background: #026b84
+  background: $activelinkbackground
   color: white !important
 
 .uk-tab li a 
-  color: #636363 !important
+  color: $uktabcolor !important
 
 .uk-button-listing
-  background: #a3c105
+  background: $listingbackground
   width: 14%
 
 .uk-switcher
@@ -276,9 +299,9 @@ a:hover
 .feature-dropdown
   width: 25%
   height: 180px
-  background: #ffffff
+  background: $link
   position: absolute
-  border: 1px solid #c2c2c2
+  border: 1px solid $featureborder
   margin: -1% 0 0% 1.5%
   overflow: overlay
 
@@ -312,9 +335,9 @@ a:hover
   margin-bottom: 3px
   margin-right: 2px
   padding: 0 12px
-  background: #edf4f7
+  background: $ukbadgebackground
   line-height: 30px
-  color: #828282
+  color: $ukbadgecolor
   border-radius: 10px
 
 .plus-icon
@@ -334,7 +357,7 @@ a:hover
   box-sizing: border-box
   padding: 20px
   max-width: calc(100% - 20px)
-  background: #fff
+  background: $background
 
 .edit-button
   position: absolute
@@ -361,19 +384,19 @@ span.head
   padding-right: 1em
 
 //login email
-.uk-input:focus
+.login-input:focus
   color: white
   background: 0,0
   border-bottom: 2px solid white
 
 
 
-.uk-input
+.login-input
   background: 0 0
   border: none
   box-shadow: none
   border-bottom: 2px solid rgba(255, 255, 255, 0.5)
-  color: #FFF
+  color: $background
   border-radius: 0
 
 
@@ -397,7 +420,7 @@ span.head
 
 .login-button:active, .login-button.uk-active 
     background-color: none
-    color: #fff
+    color: $background
 
 .login-button:hover
   background-color: $secondary
@@ -461,10 +484,8 @@ span.head
   color: $grayfont
 
 .experiences-category:hover
-  background: #444
+  background: $experiencehover
   color: black
-
-
 
 .active-page
   color: white !important
@@ -482,15 +503,15 @@ span.head
 
 .row-bookings
   margin-left: 30px
-  border-top: 1px solid #ece9ea
-  border-bottom: 1px solid #ece9ea
+  border-top: 1px solid $rowbookingborder
+  border-bottom: 1px solid $rowbookingborder
   padding-top: 10px
   padding-bottom: 10px
-  background-color: #f7f7f9
+  background-color: $rowbookingbackground
 
 .booking-item
   padding-left: 10px
-  border-right: 1px solid #ccc
+  border-right: 1px solid $bookingitemborder
 
 .total-earnings
   padding-left: 20px
@@ -513,7 +534,7 @@ span.head
 .earning-list
   padding-top: 20px
   padding-bottom: 20px
-  border: 1px solid #d3d3d3
+  border: 1px solid $earninglistborder
   
 
 .container-list
@@ -525,10 +546,10 @@ span.head
   padding-left: 0px
   padding-top: 5px
   padding-bottom: 25px
-  border-bottom: 1px solid #ccc
+  border-bottom: 1px solid $bookingitemborder
 
 .inner-list:hover
-  background-color: #f7f7f9
+  background-color: $rowbookingbackground
   
 .uk-text-bold
   color: black
@@ -547,13 +568,13 @@ span.head
   padding-bottom: 15px
   padding-left: 5px
   padding-right: 5px
-  border: 1px solid #ccc
+  border: 1px solid $bookingitemmborder
 
 .border-bottom
-  border-bottom: 4px solid #5bc0de
+  border-bottom: 4px solid $borderbottom
 
 .active-date:hover
-  background-color: #f7f7f9
+  background-color: $rowbookingbackground
 
 .date
   color:  black
@@ -565,15 +586,50 @@ span.head
 
 //localities
 .breadcrumb
-  background-color: #eceeef
+  background-color: $breadcrumbbackground
 
 .localities-panel
-  border: 1px solid #d3d3d3
+  border: 1px solid $earninglistborder
 
 .localities-panel-header
-  border-bottom: 1px solid #d3d3d3
-  background-color: #f7f7f9
+  border-bottom: 1px solid $earninglistborder
+  background-color: $rowbookingbackground
 
 .localities-table
-  border-top: 1px solid #d3d3d3
+  border-top: 1px solid $earninglistborder
 
+//partners
+.partners-input
+  background: 0 0
+  border: none
+  box-shadow: none
+  border-bottom: 2px solid $borderdefault
+  color: $background
+  border-radius: 0
+
+.partners-dropdown
+  background: $rowbookingbackground
+
+.option-div-size
+  width: 250px
+
+.dropdown-option
+  color: $grayfont
+
+.partners-table
+  padding-left: 15px
+  padding-right: 15px
+  padding-bottom: 15px
+
+.partners-signin-button
+  background-color: $partnersbtnbackground
+  color: white
+
+.partners-signin-button:hover
+  background-color: $partnersbtnhover
+
+.partners-eye-icon
+  filter: invert(1)
+  
+.partners-updown-icon
+  filter: invert(1)

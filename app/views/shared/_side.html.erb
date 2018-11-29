@@ -15,7 +15,7 @@
           </div>
         <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('money-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Transactions</span> <%end%></li>
         <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('report-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Reports</span> <%end%></li>
-        <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('partner-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Partners</span> <%end%></li>
+        <li><%= link_to partners_path, id: active_page?(partners_path), class: 'side-nav' do %><%= image_tag('partner-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Partners</span> <%end%></li>
         <li><%= link_to localities_path, id: active_page?(localities_path), class: 'side-nav' do %><%= image_tag('location-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Localities</span> <%end%></li>
         <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('category-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Categories</span> <%end%></li>
         <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('audit-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Audit Trail</span> <%end%></li>
