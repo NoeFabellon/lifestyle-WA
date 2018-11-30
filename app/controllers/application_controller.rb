@@ -15,19 +15,7 @@ class ApplicationController < ActionController::Base
 
     http = Net::HTTP.new(uri.host, uri.port)
     req.body = hash.to_json
-    http.use_ssl = true
-    res = http.request(req).body
-    res = JSON[res] if res.present?
-    res
-  end
-
-  def send_authenticated_request(action, hash, method)
-    hash = isempty(hash)
-    uri = uri_action(action)
-    req = req(method, uri)
-
-    http = Net::HTTP.new(uri.host, uri.port)
-    req.body = hash.to_json
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE #temporary fix for expired ssl cert
     http.use_ssl = true
     res = http.request(req).body
     res = JSON[res] if res.present?
@@ -47,7 +35,6 @@ class ApplicationController < ActionController::Base
   def req(method, uri)
     path = uri.path
     request_uri = uri.request_uri
-
     case method
     when 'post' then Net::HTTP::Post.new(path, request_header)
     when 'put' then Net::HTTP::Put.new(path, request_header)
