@@ -14,6 +14,7 @@
             <li><%= link_to events_path, class: 'experiences-category', id: active_page?(events_path) do %><%= image_tag('calendar-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Events</span><%end%></li>
           </div>
         <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('money-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Transactions</span> <%end%></li>
+        <li><%= link_to vouchers_path, id: active_page?(vouchers_path), class: 'side-nav' do %><%= image_tag('voucher-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Vouchers</span> <%end%></li>
         <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('report-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Reports</span> <%end%></li>
         <li><%= link_to partners_path, id: active_page?(partners_path), class: 'side-nav' do %><%= image_tag('partner-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Partners</span> <%end%></li>
         <li><%= link_to localities_path, id: active_page?(localities_path), class: 'side-nav' do %><%= image_tag('location-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Localities</span> <%end%></li>
