@@ -1,0 +1,141 @@
+<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<div class="main uk-section">
+  <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
+    <div class="uk-grid uk-margin-remove">
+      <div class="uk-padding-remove"><h2>Transactions</h2></div>
+    </div>
+    <div class="uk-grid uk-margin-remove breadcrumb uk-border-rounded">
+      <div class="uk-padding-small">
+        <ul class="uk-breadcrumb">
+          <li><%= image_tag('dashboard-icon.jpg', class: 'uk-icon-image') %><a href="/" class="uk-margin-small-left">Dashboard</a></li>
+          <li><span uk-icon="file-edit"></span><a href="#" class="uk-margin-small-left">Transactions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="uk-grid uk-width-1-1 uk-margin-remove">
+      <div class="uk-padding-small uk-width-1-1">
+        <div class="uk-grid uk-margin-remove uk-width-1-1">
+          <div class=" uk-margin-top uk-padding-remove"><span uk-icon="icon: search"></span></div>
+          <div class="uk-inline uk-padding-small">
+            <button class="uk-button uk-width-1-1 uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button"><span uk-icon="icon: triangle-down" class="uk-margin-xlarge-left"></span></button>
+            <div uk-dropdown="mode: click">
+              <li><a href="#" class="dropdown-option">Reference No</a></li>
+              <li><a href="#" class="dropdown-option">Customer</a></li>
+              <li><a href="#" class="dropdown-option">Method</a></li>
+              <li><a href="#" class="dropdown-option">Amount</a></li>
+              <li><a href="#" class="dropdown-option">Date</a></li>
+              <li><a href="#" class="dropdown-option">Status</a></li>
+            </div>
+          </div>
+          <div class="uk-form uk-form-width-medium uk-padding-small"><input class="uk-input partners-input" type="text" placeholder="Start typing here..." /></div>
+          <div class="uk-inline uk-padding-small">
+            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Filters<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
+            <div uk-dropdown="mode: click">
+              <li><a href="#" class="dropdown-option">Reference No</a></li>
+              <li><a href="#" class="dropdown-option">Customer</a></li>
+              <li><a href="#" class="dropdown-option">Method</a></li>
+              <li><a href="#" class="dropdown-option">Amount</a></li>
+              <li><a href="#" class="dropdown-option">Date</a></li>
+              <li><a href="#" class="dropdown-option">Status</a></li>
+            </div>
+          </div>
+          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded"><%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
+        </div>
+      </div>
+    </div>
+    <div class="uk-grid uk-margin-remove uk-width-1-1">
+      <div class="uk-padding-remove uk-width-1-1">
+        <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+          <div class="uk-padding-small localities-panel-header">
+            <span>Transactions</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Transactions</span></button>
+          </div>
+          <div class="uk-padding-small table-content-container">
+            <div class="content-well p-x-2 p-y-2">
+              <div class="uk-container">
+                <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
+                  <thead>
+                    <tr>
+                      <th class="uk-text-capitalize table-column-name"><%= image_tag('sorting-icon.png', class: 'updown-image') %>Txn Ref No.</th>
+                      <th class="uk-text-capitalize table-column-name">Customer</th>
+                      <th class="uk-text-capitalize table-column-name">Method</th>
+                      <th class="uk-text-capitalize table-column-name">Amount</th>
+                      <th class="uk-text-capitalize table-column-name"><%= image_tag('sorting-icon.png', class: 'updown-image') %>Txn Date</th>
+                      <th class="uk-text-capitalize table-column-name">Payment Date / Ref</th>
+                      <th class="uk-text-capitalize table-column-name"><%= image_tag('sorting-icon.png', class: 'updown-image') %>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">UMKLMS</td>
+                      <td>enrique.gaston@enderuncolleges.com</td>
+                      <td>BDO</td>
+                      <td>PHP1,750.00</td>
+                      <td>2018.11.06<br />04:33 PM</td>
+                      <td>2018.11.06 04:33 PM / UMKLMS</td>
+                      <td class="uk-text-bold uk-text-success">PAID</td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">557AHL</td>
+                      <td>davidcodilla@gmail.com</td>
+                      <td>BDO</td>
+                      <td>PHP1,750.00</td>
+                      <td>2018.11.06<br />04:33 PM</td>
+                      <td>2018.11.06 04:33 PM / UMKLMS</td>
+                      <td class="uk-text-bold uk-text-success">PAID</td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">QH2TI5</td>
+                      <td>perez_natazha@gmail.com</td>
+                      <td>BDO</td>
+                      <td>PHP1,750.00</td>
+                      <td>2018.11.06<br />04:33 PM</td>
+                      <td>2018.11.06 04:33 PM / UMKLMS</td>
+                      <td class="uk-text-bold uk-text-success">PAID</td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">IMQAMN</td>
+                      <td>ijirankhan@yahoo.com</td>
+                      <td>BPI</td>
+                      <td>PHP1,750.00</td>
+                      <td>2018.11.06<br />04:33 PM</td>
+                      <td>/</td>
+                      <td class="uk-text-bold uk-text-danger">EXPIRED</td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">LHEFQY</td>
+                      <td>cmbascuguin@gmail.com</td>
+                      <td>BAYD</td>
+                      <td>PHP3000.00</td>
+                      <td>2018.11.06<br />04:33 PM</td>
+                      <td>2018.11.06 04:33 PM / UMKLMS</td>
+                      <td class="uk-text-bold uk-text-warning">PENDING</td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">IMQAMN</td>
+                      <td>ijirankhan@yahoo.com</td>
+                      <td>BPI</td>
+                      <td>PHP1,750.00</td>
+                      <td>2018.11.06<br />04:33 PM</td>
+                      <td>/</td>
+                      <td class="uk-text-bold uk-text-danger">EXPIRED</td>
+                    </tr>
+                    <tr class="uk-padding-remove">
+                      <td class="uk-text-bold">LHEFQY</td>
+                      <td>cmbascuguin@gmail.com</td>
+                      <td>BAYD</td>
+                      <td>PHP3000.00</td>
+                      <td>2018.11.06<br />04:33 PM</td>
+                      <td>2018.11.06 04:33 PM / UMKLMS</td>
+                      <td class="uk-text-bold uk-text-warning">PENDING</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
