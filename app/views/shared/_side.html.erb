@@ -7,7 +7,7 @@
           <a href="#toggle-animation" id='experiences-link' class="side-nav" uk-toggle="target: #toggle-animation; mode: click; animation: uk-animation-fade"> <%= image_tag('experience-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Experiences</span> </a>
         </li>
           <div id="toggle-animation" class="uk-margin-medium-left">
-            <li><%= link_to '#', class: 'experiences-category' do %><%= image_tag('earth-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Travel</span><%end%></li>
+            <li><%= link_to travels_path, class: 'experiences-category', id: active_page?(travels_path) do %><%= image_tag('earth-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Travel</span><%end%></li>
             <li><%= link_to '#', class: 'experiences-category' do %><%= image_tag('donut-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Food</span><%end%></li>
             <li><%= link_to '#', class: 'experiences-category' do %><%= image_tag('home-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Lodging</span><%end%></li>
             <li><%= link_to '#', class: 'experiences-category' do %><%= image_tag('bike-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Wellness</span><%end%></li>

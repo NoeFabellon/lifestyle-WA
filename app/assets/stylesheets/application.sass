@@ -33,12 +33,12 @@ $partnersbtnbackground: #00bd29
 $uklabelbackground: #e8ecf1
 $uklabelcolor: #656565
 $ukbtnmediumbackground: #1ea2bb
-$ukselctcolor: #8a8a8a
+$ukselectcolor: #8a8a8a
 $forminputimagebackground: #ecf4f7
 $forminputimageborder: #a9a9a9
 $btncolor: #8f8f8f
 $activelinkbackground: #026b84
-$uktabcolord: #636363
+$uktabcolor: #636363
 $listingbackground: #a3c105
 $featureborder: #c2c2c2
 $ukbadgebackground: #edf4f7
@@ -53,6 +53,11 @@ $partnersbtnhover: #009f22
 
 html
   background: $background
+
+.navbar-container
+  position: fixed
+  width: 100%
+  z-index: 999
 
 .mebackoffice-nav
   color: $grayfont
@@ -547,9 +552,6 @@ span.head
   padding-top: 5px
   padding-bottom: 25px
   border-bottom: 1px solid $bookingitemborder
-
-.inner-list:hover
-  background-color: $rowbookingbackground
   
 .uk-text-bold
   color: black
@@ -568,7 +570,7 @@ span.head
   padding-bottom: 15px
   padding-left: 5px
   padding-right: 5px
-  border: 1px solid $bookingitemmborder
+  border: 1px solid $bookingitemborder
 
 .border-bottom
   border-bottom: 4px solid $borderbottom
@@ -620,6 +622,8 @@ span.head
   padding-left: 15px
   padding-right: 15px
   padding-bottom: 15px
+  height: 450px
+  overflow: scroll
 
 .partners-signin-button
   background-color: $partnersbtnbackground
@@ -633,3 +637,30 @@ span.head
   
 .partners-updown-icon
   filter: invert(1)
+
+//travel
+.nav-border-right
+  border-right: 1px solid $secondary
+
+.travel-nav-link
+  background: none
+  color: $grayfont
+
+.table-column-name
+  font-weight: bold !important
+  color: black !important
+
+.table-content-container
+  height: 450px
+  overflow: scroll
+
+.travel-active-link
+  font-weight: bold
+  color: blue
+
+.unlock-button
+  background: transparent
+  border: none
+
+.unlock-icon
+  filter: contrast(0)
