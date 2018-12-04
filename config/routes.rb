@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :travels
   resources :events
   resources :partners
+  resources :vouchers
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions",:omniauth_callbacks => "users/omniauth_callbacks"}
   devise_scope :user do 
     authenticated :user do
