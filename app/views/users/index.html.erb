@@ -8,7 +8,7 @@
 
 <% content_for :content do %>
   <div class="main uk-section">
-    <div class="uk-container uk-container-expand uk-position-relative">
+    <div class="uk-container">
       <div class="content-well p-x-2 p-y-2">
         <div class="uk-container">
           <table class="uk-table uk-table-middle uk-table-divider uk-table-large uk-table-justify" data-uk-scrollspy="cls:uk-animation-fade;">
@@ -19,6 +19,7 @@
                 <th>Roles</th>
                 <th>Status</th>
                 <th>Date Created</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -39,6 +40,7 @@
                     <% end %>
                   </td>
                   <td class="uk-width-1-5"><%= format_date(user['dateCreated']) %></td>
+                  <td class="uk-width-1-5"><%= link_to 'Edit', '#'%></td>
                 </tr>
               <% end %>
             </tbody>

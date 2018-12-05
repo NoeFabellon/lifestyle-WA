@@ -10,4 +10,12 @@ module ApplicationHelper
       ""
     end
   end
+  
+  def convert_to_boolean(value)
+    if value == 'true'
+      true
+    elsif value == 'false'
+      false
+    end
+  end
 end
