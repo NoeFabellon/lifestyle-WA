@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :transactions
   resources :foods
   resources :lodgings
+  resources :wellness
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions",:omniauth_callbacks => "users/omniauth_callbacks"}
   devise_scope :user do 
     authenticated :user do

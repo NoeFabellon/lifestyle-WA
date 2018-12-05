@@ -189,12 +189,21 @@ $(document).on("turbolinks:load", function() {
     });
   }
 
-  if (window.location.pathname.includes("events")) {
-    $("#experiences-link").addClass("active-page");
-  }
   if (window.location.pathname.includes("travels")) {
     $("#experiences-link").addClass("active-page");
     $("#travel-nav-all").addClass("travel-active-link");
+  }
+  if (window.location.pathname.includes("foods")) {
+    $("#experiences-link").addClass("active-page");
+  }
+  if (window.location.pathname.includes("lodgings")) {
+    $("#experiences-link").addClass("active-page");
+  }
+  if (window.location.pathname.includes("wellness")) {
+    $("#experiences-link").addClass("active-page");
+  }
+  if (window.location.pathname.includes("events")) {
+    $("#experiences-link").addClass("active-page");
   }
 
   $(".travel-nav-link").click(function(e) {
