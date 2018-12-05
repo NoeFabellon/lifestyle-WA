@@ -15,8 +15,6 @@ class UsersController < ApplicationController
   def update
     id = params[:id]
     @user = send_authenticated_request("api/admins/#{id}", update_params, 'put')
-    
-
   end
 
   def new; end

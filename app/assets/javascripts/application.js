@@ -218,69 +218,121 @@ $(document).on("turbolinks:load", function() {
     $(table).removeClass("uk-hidden");
   });
 
-  if(document.getElementById('user_roles')){
-    let roles = $('input#user_roles').val().split(' ');
+  if (document.getElementById("user_roles")) {
+    let roles = $("input#user_roles")
+      .val()
+      .split(" ");
     let temp = [];
-    $('input#user_roles').val(JSON.stringify(roles));
-    $('input.uk-checkbox').on('click', (e) => {
-      if($('input#administrator').is(":checked")){
-        $('input#administrator').attr({'checked':true});
-      }
-      else{
-        $('input#administrator').attr({'checked':false});
+    $("input#user_roles").val(JSON.stringify(roles));
+    $("input.uk-checkbox").on("click", e => {
+      if ($("input#administrator").is(":checked")) {
+        $("input#administrator").attr({ checked: true });
+      } else {
+        $("input#administrator").attr({ checked: false });
         temp = [];
       }
-      if($('input#staff').is(":checked")){
-        $('input#staff').attr({'checked':true});
-      }
-      else{
-        $('input#staff').attr({'checked':false});
+      if ($("input#staff").is(":checked")) {
+        $("input#staff").attr({ checked: true });
+      } else {
+        $("input#staff").attr({ checked: false });
         temp = [];
       }
-      if($('input#sales').is(":checked")){
-        $('input#sales').attr({'checked':true});
-      }
-      else {
-        $('input#sales').attr({'checked':false});
+      if ($("input#sales").is(":checked")) {
+        $("input#sales").attr({ checked: true });
+      } else {
+        $("input#sales").attr({ checked: false });
         temp = [];
       }
-      $('#checkbox label input[checked]').map( (key,value) => {
-        if ($.inArray(value.value,temp)==-1) temp.push(value.value);
+      $("#checkbox label input[checked]").map((key, value) => {
+        if ($.inArray(value.value, temp) == -1) temp.push(value.value);
       });
-      $('input#user_roles').val(JSON.stringify(temp));
+      $("input#user_roles").val(JSON.stringify(temp));
     });
-    roles.map( (role) => {
-      if (role == 'ROLE_BACKOFFICE_ADMIN'){
-        $('input#administrator').attr({'checked':true});
-      }
-      else if ( role == 'ROLE_BACKOFFICE_USER'){
-        $('input#staff').attr({'checked':true});
-      }
-      else {
-        $('input#sales').attr({'checked':true});
+    roles.map(role => {
+      if (role == "ROLE_BACKOFFICE_ADMIN") {
+        $("input#administrator").attr({ checked: true });
+      } else if (role == "ROLE_BACKOFFICE_USER") {
+        $("input#staff").attr({ checked: true });
+      } else {
+        $("input#sales").attr({ checked: true });
       }
     });
   }
 
-  if(document.getElementById('user_enabled')){
-    let status = $('input#user_enabled').val();
-    $('input.uk-radio').on('change', (e) => {
-      if($("input#true").is(":checked")){
-        $('input#user_enabled').val(true);
+  if (document.getElementById("user_enabled")) {
+    let status = $("input#user_enabled").val();
+    $("input.uk-radio").on("change", e => {
+      if ($("input#true").is(":checked")) {
+        $("input#user_enabled").val(true);
+      } else {
+        $("input#user_enabled").val(false);
       }
-      else {
-        $('input#user_enabled').val(false);
-      }
-    })
-    if (status == 'true'){
-      $('input#false').prop('checked',false);
-      $('input#true').prop('checked',true);
-    }
-    else {
-      $('input#true').prop('checked',false);
-      $('input#false').prop('checked',true);
+    });
+    if (status == "true") {
+      $("input#false").prop("checked", false);
+      $("input#true").prop("checked", true);
+    } else {
+      $("input#true").prop("checked", false);
+      $("input#false").prop("checked", true);
     }
   }
-  
+
+  if (document.getElementById("user_roles")) {
+    let roles = $("input#user_roles")
+      .val()
+      .split(" ");
+    let temp = [];
+    $("input#user_roles").val(JSON.stringify(roles));
+    $("input.uk-checkbox").on("click", e => {
+      if ($("input#administrator").is(":checked")) {
+        $("input#administrator").attr({ checked: true });
+      } else {
+        $("input#administrator").attr({ checked: false });
+        temp = [];
+      }
+      if ($("input#staff").is(":checked")) {
+        $("input#staff").attr({ checked: true });
+      } else {
+        $("input#staff").attr({ checked: false });
+        temp = [];
+      }
+      if ($("input#sales").is(":checked")) {
+        $("input#sales").attr({ checked: true });
+      } else {
+        $("input#sales").attr({ checked: false });
+        temp = [];
+      }
+      $("#checkbox label input[checked]").map((key, value) => {
+        if ($.inArray(value.value, temp) == -1) temp.push(value.value);
+      });
+      $("input#user_roles").val(JSON.stringify(temp));
+    });
+    roles.map(role => {
+      if (role == "ROLE_BACKOFFICE_ADMIN") {
+        $("input#administrator").attr({ checked: true });
+      } else if (role == "ROLE_BACKOFFICE_USER") {
+        $("input#staff").attr({ checked: true });
+      } else {
+        $("input#sales").attr({ checked: true });
+      }
+    });
+  }
+
+  if (document.getElementById("user_enabled")) {
+    let status = $("input#user_enabled").val();
+    $("input.uk-radio").on("change", e => {
+      if ($("input#true").is(":checked")) {
+        $("input#user_enabled").val(true);
+      } else {
+        $("input#user_enabled").val(false);
+      }
+    });
+    if (status == "true") {
+      $("input#false").prop("checked", false);
+      $("input#true").prop("checked", true);
+    } else {
+      $("input#true").prop("checked", false);
+      $("input#false").prop("checked", true);
+    }
+  }
 });
-  

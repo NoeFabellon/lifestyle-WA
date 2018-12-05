@@ -1,52 +1,56 @@
-<% content_for :header do %>
-  <%= render 'shared/menu' %>
-<% end %>
-
-<% content_for :side do %>
-  <%= render 'shared/side' %>
-<% end %>
-
-<% content_for :content do %>
-  <div class="main uk-section">
-    <div class="uk-container">
-      <div class="content-well p-x-2 p-y-2">
-        <div class="uk-container">
-          <table class="uk-table uk-table-middle uk-table-divider uk-table-large uk-table-justify" data-uk-scrollspy="cls:uk-animation-fade;">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Status</th>
-                <th>Date Created</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @users.each do |user| %>
-                <tr>
-                  <td class="uk-width-1-5"><%= user['fullName'] %></td>
-                  <td class="uk-width-1-5"><%= user['email'] %></td>
-                  <td class="uk-width-1-5">
-                    <% user['roles'].each do |role| %>
-                      <%= role %>
+<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<div class="main uk-section">
+  <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
+    <div class="uk-grid uk-margin-remove">
+      <div class="uk-padding-remove"><h2>Administrators</h2></div>
+    </div>
+    <div class="uk-grid uk-margin-small-bottom uk-margin-remove-top uk-margin-remove-right uk-margin-remove-left breadcrumb uk-border-rounded">
+      <div class="uk-padding-small">
+        <ul class="uk-breadcrumb">
+          <li><%= image_tag('dashboard-icon.jpg', class: 'uk-icon-image') %><a href="/" class="uk-margin-small-left">Dashboard</a></li>
+          <li><span uk-icon="file-edit"></span><a href="#" class="uk-margin-small-left">Administrators</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="uk-grid uk-margin-remove uk-width-1-1">
+      <div class="uk-padding-remove uk-width-1-1">
+        <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+          <div class="uk-padding-small localities-panel-header">
+            <span>Administrators</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Admin</span></button>
+          </div>
+          <div class="uk-padding small table-content-container">
+            <div class="content-well p-x-2 p-y-2">
+              <div class="uk-container">
+                <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
+                  <thead>
+                    <tr>
+                      <th class="uk-text-capitalize table-column-name">Name</th>
+                      <th class="uk-text-capitalize table-column-name">Email</th>
+                      <th class="uk-text-capitalize table-column-name">Roles</th>
+                      <th class="uk-text-capitalize table-column-name">Status</th>
+                      <th class="uk-text-capitalize table-column-name">Date Created</th>
+                      <th class="uk-text-capitalize table-column-name"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @users.each do |user| %>
+                    <tr class="uk-padding-remove">
+                      <td><%= user['fullName'] %></td>
+                      <td><%= user['email'] %></td>
+                      <td><% user['roles'].each do |role| %> <%= role %> <% end %></td>
+                      <td><% if user['enabled'] %> Enabled <% else %> Disabled <% end %></td>
+                      <td><%= format_date(user['dateCreated']) %></td>
+                      <td><%= button_to edit_user_path(user['id']), :method => "get", class:'uk-button-primary uk-border-rounded' do%><span uk-icon="icon: pencil"></span><%end%></td>
+                    </tr>
                     <% end %>
-                  </td>
-                  <td class="uk-width-1-5">
-                    <% if user['enabled'] %>
-                      Enabled
-                    <% else %>
-                      Disabled
-                    <% end %>
-                  </td>
-                  <td class="uk-width-1-5"><%= format_date(user['dateCreated']) %></td>
-                  <td class="uk-width-1-5"><%= link_to 'Edit', '#'%></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 <% end %>
