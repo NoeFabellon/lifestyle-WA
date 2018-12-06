@@ -207,6 +207,7 @@ $(document).on("turbolinks:load", function() {
   }
   if (window.location.pathname.includes("events")) {
     $("#experiences-link").addClass("active-page");
+    $("#event-nav-all").addClass("travel-active-link");
   }
 
   $(".travel-nav-link").click(function(e) {
