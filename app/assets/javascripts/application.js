@@ -195,6 +195,7 @@ $(document).on("turbolinks:load", function() {
   }
   if (window.location.pathname.includes("foods")) {
     $("#experiences-link").addClass("active-page");
+    $("#food-nav-all").addClass("travel-active-link");
   }
   if (window.location.pathname.includes("lodgings")) {
     $("#experiences-link").addClass("active-page");
