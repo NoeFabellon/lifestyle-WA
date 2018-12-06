@@ -1,18 +1,19 @@
-<div class="uk-side uk-padding-remove">
+<div class="uk-side uk-padding-remove uk-visible@m">
   <ul class="uk-nav uk-nav-default uk-list uk-list-large">
     <div class="uk-panel">
       <ul class="uk-nav">
         <li><%= link_to authenticated_root_path, class: 'side-nav',id: active_page?(authenticated_root_path) do %><%= image_tag('white.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Dashboards</span><%end%></li>
-        <li>
-          <a href="#toggle-animation" id='experiences-link' class="side-nav" uk-toggle="target: #toggle-animation; mode: click; animation: uk-animation-fade"> <%= image_tag('experience-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Experiences</span> </a>
+        <li class="uk-position-relative">
+          <%= link_to experiences_path, class: 'side-nav experience-main',id: active_page?(experiences_path) do %> <%= image_tag('experience-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span> Experiences </span> <%end%>
+          <a id="experiences-link" class="side-nav uk-position-bottom-right"> <%= image_tag('arrowdown.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%></a>
         </li>
-          <div id="toggle-animation" class="uk-margin-medium-left">
-            <li><%= link_to travels_path, class: 'experiences-category', id: active_page?(travels_path) do %><%= image_tag('earth-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Travel</span><%end%></li>
-            <li><%= link_to foods_path, class: 'experiences-category', id: active_page?(foods_path) do %><%= image_tag('donut-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Food</span><%end%></li>
-            <li><%= link_to lodgings_path, class: 'experiences-category', id: active_page?(lodgings_path) do %><%= image_tag('home-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Lodging</span><%end%></li>
-            <li><%= link_to wellness_index_path, class: 'experiences-category', id: active_page?(wellness_index_path) do %><%= image_tag('bike-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Wellness</span><%end%></li>
-            <li><%= link_to events_path, class: 'experiences-category', id: active_page?(events_path) do %><%= image_tag('calendar-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Events</span><%end%></li>
-          </div>
+        <div id="toggle-animation" class="uk-margin-medium-left uk-hidden">
+          <li><%= link_to travels_path, class: 'experiences-category', id: active_page?(travels_path) do %><%= image_tag('earth-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Travel</span><%end%></li>
+          <li><%= link_to foods_path, class: 'experiences-category', id: active_page?(foods_path) do %><%= image_tag('donut-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Food</span><%end%></li>
+          <li><%= link_to lodgings_path, class: 'experiences-category', id: active_page?(lodgings_path) do %><%= image_tag('home-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Lodging</span><%end%></li>
+          <li><%= link_to wellness_index_path, class: 'experiences-category', id: active_page?(wellness_index_path) do %><%= image_tag('bike-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Wellness</span><%end%></li>
+          <li><%= link_to events_path, class: 'experiences-category', id: active_page?(events_path) do %><%= image_tag('calendar-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Events</span><%end%></li>
+        </div>
         <li><%= link_to transactions_path, id: active_page?(transactions_path) , class: 'side-nav' do %><%= image_tag('money-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Transactions</span> <%end%></li>
         <li><%= link_to vouchers_path, id: active_page?(vouchers_path), class: 'side-nav' do %><%= image_tag('voucher-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Vouchers</span> <%end%></li>
         <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('report-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Reports</span> <%end%></li>

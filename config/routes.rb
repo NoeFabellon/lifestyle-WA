@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :dashboards, only: :index
   resources :posts
   resources :localities
+  resources :experiences
   resources :travels
   resources :events
   resources :partners
