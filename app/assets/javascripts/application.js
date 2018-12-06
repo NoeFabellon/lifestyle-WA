@@ -203,6 +203,7 @@ $(document).on("turbolinks:load", function() {
   }
   if (window.location.pathname.includes("wellness")) {
     $("#experiences-link").addClass("active-page");
+    $("#wellness-nav-all").addClass("travel-active-link");
   }
   if (window.location.pathname.includes("events")) {
     $("#experiences-link").addClass("active-page");
