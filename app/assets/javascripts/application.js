@@ -199,6 +199,7 @@ $(document).on("turbolinks:load", function() {
   }
   if (window.location.pathname.includes("lodgings")) {
     $("#experiences-link").addClass("active-page");
+    $("#lodging-nav-all").addClass("travel-active-link");
   }
   if (window.location.pathname.includes("wellness")) {
     $("#experiences-link").addClass("active-page");
