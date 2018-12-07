@@ -1,6 +1,9 @@
 <nav class="uk-navbar-container navbar-container" uk-navbar>
   <div class="uk-navbar-left">
-    <ul class="uk-navbar-nav">
+    <ul class="uk-navbar-nav uk-hidden@m">
+      <button class="uk-button uk-button-default" id="burger-button" type="button" uk-toggle="target: #offcanvas-nav"><%= image_tag('hamburger-icon.png', id: 'burger-icon', class: 'uk-icon-image')%></button>
+    </ul>
+    <ul class="uk-navbar-nav uk-visible@m">
       <li><a href="#" class="brand-name"> Bliimo Admin Module </a></li>
     </ul>
   </div>
@@ -15,14 +18,42 @@
             </div>
           </div>
         </div>
-        <button class="uk-button uk-button-default  uk-hidden" type="button" uk-toggle="target: #offcanvas-nav">
-          <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <rect y="9" width="20" height="2"></rect>
-            <rect y="3" width="20" height="2"></rect>
-            <rect y="15" width="20" height="2"></rect>
-          </svg>
-        </button>
       </li>
     </ul>
   </div>
 </nav>
+<div class="uk-offcanvas-content">
+    <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+      <div class="uk-offcanvas-bar">
+        <div class="uk-panel">
+          <h3 class="uk-panel-title">Bliimo Admin Module</h3>
+          <ul class="uk-nav uk-nav-default uk-list uk-list-large">
+            <div class="uk-panel">
+              <ul class="uk-nav">
+                <li><%= link_to authenticated_root_path, class: 'side-nav',id: active_page?(authenticated_root_path) do %> <%= image_tag('white.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Dashboards</span> <%end%></li>
+                <li class="uk-position-relative">
+                  <%= link_to experiences_path, class: 'side-nav experience-main',id: active_page?(experiences_path) do %> <%= image_tag('experience-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span> Experiences </span> <%end%>
+                  <a id="experiences-link2" class="side-nav uk-position-bottom-right"> <%= image_tag('arrowdown.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%></a>
+                </li>
+                <div id="toggle-animation2" class="uk-margin-medium-left uk-hidden">
+                  <li><%= link_to travels_path, class: 'experiences-category2', id: active_page?(travels_path) do %> <%= image_tag('earth-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Travel</span> <%end%></li>
+                  <li><%= link_to foods_path, class: 'experiences-category2', id: active_page?(foods_path) do %> <%= image_tag('donut-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Food</span> <%end%></li>
+                  <li><%= link_to lodgings_path, class: 'experiences-category2', id: active_page?(lodgings_path) do %> <%= image_tag('home-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Lodging</span> <%end%></li>
+                  <li><%= link_to wellness_index_path, class: 'experiences-category2', id: active_page?(wellness_index_path) do %> <%= image_tag('bike-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Wellness</span> <%end%></li>
+                  <li><%= link_to events_path, class: 'experiences-category2', id: active_page?(events_path) do %> <%= image_tag('calendar-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Events</span> <%end%></li>
+                </div>
+                <li><%= link_to transactions_path, id: active_page?(transactions_path) , class: 'side-nav' do %> <%= image_tag('money-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Transactions</span> <%end%></li>
+                <li><%= link_to vouchers_path, id: active_page?(vouchers_path), class: 'side-nav' do %> <%= image_tag('voucher-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Vouchers</span> <%end%></li>
+                <li><%= link_to '#' , class: 'side-nav' do %> <%= image_tag('report-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Reports</span> <%end%></li>
+                <li><%= link_to partners_path, id: active_page?(partners_path), class: 'side-nav' do %> <%= image_tag('partner-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Partners</span> <%end%></li>
+                <li><%= link_to localities_path, id: active_page?(localities_path), class: 'side-nav' do %> <%= image_tag('location-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Localities</span> <%end%></li>
+                <li><%= link_to '#' , class: 'side-nav' do %> <%= image_tag('category-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Categories</span> <%end%></li>
+                <li><%= link_to '#' , class: 'side-nav' do %> <%= image_tag('audit-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Audit Trail</span> <%end%></li>
+                <li><%= link_to users_path , class: 'side-nav' do %> <%= image_tag('admin-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Administrators</span> <%end%></li>
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
