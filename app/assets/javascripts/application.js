@@ -168,34 +168,25 @@ $(document).on("turbolinks:load", function() {
   $("#listing_contract_type option:nth-child(1)").attr({ disabled: true });
   $("#listing_bedroom_type option:nth-child(1)").attr({ disabled: true });
 
-  animateExpSubCat();
-  function animateExpSubCat() {
-    $(".side-nav").on("click", function(e) {
-      if ($(this).attr("id") === "experiences-link") {
-        if ($("#toggle-animation").hasClass("uk-hidden")) {
-          $("#toggle-animation").removeClass("uk-hidden");
-        } else {
-          $("#toggle-animation").addClass("uk-hidden");
-        }
+  $(".side-nav").on("click", function(e) {
+    if ($(this).attr("id") === "experiences-link") {
+      if ($("#toggle-animation").hasClass("uk-hidden")) {
+        $("#toggle-animation").removeClass("uk-hidden");
+      } else {
+        $("#toggle-animation").addClass("uk-hidden");
       }
+    }
+  });
+  $("#experiences-link2").on("click", function(e) {
+    if ($(this).attr("id") === "experiences-link2") {
+      if ($("#toggle-animation2").hasClass("uk-hidden")) {
+        $("#toggle-animation2").removeClass("uk-hidden");
+      } else {
+        $("#toggle-animation2").addClass("uk-hidden");
+      }
+    }
+  });
 
-      //  if ($(this).attr("id") === "experiences-link") {
-      //   setTimeout(function() {
-      //     if ($("#toggle-animation").attr("aria-hidden") == "false") {
-      //       $("#experiences-link").addClass("active-page");
-      //     } else {
-      //       $("#experiences-link").removeClass("active-page");
-      //    }
-      //   }, 300);
-      //   $("#active-page").attr("id", "");
-      // } else {
-      //   $("#experiences-link").removeClass("active-page");
-      //   setTimeout(function() {
-      //     $(this).attr("id", "");
-      //   }, 300);
-      // }
-    });
-  }
   if (window.location.pathname.includes("travels")) {
     $("#toggle-animation").removeClass("uk-hidden");
     $(".experience-main").addClass("active-page");
@@ -394,4 +385,11 @@ $(document).on("turbolinks:load", function() {
   $("#categorypageimg").change(function() {
     categoryreadURL(this);
   });
+
+  // $("#burger-button").on("click", function(e) {
+  //   console.log($("#side-nav").css("display"));
+  // });
+  // $(window).resize(function(e) {
+  //   console.log($(window).width());
+  // });
 });
