@@ -4,12 +4,33 @@
     <div class="uk-grid uk-margin-remove">
       <div class="uk-padding-remove"><h2>Administrators</h2></div>
     </div>
-    <div class="uk-grid uk-margin-small-bottom uk-margin-remove-top uk-margin-remove-right uk-margin-remove-left breadcrumb uk-border-rounded">
+    <div class="uk-grid uk-width-1-1 uk-margin-remove">
       <div class="uk-padding-small">
-        <ul class="uk-breadcrumb">
-          <li><%= image_tag('dashboard-icon.jpg', class: 'uk-icon-image') %><a href="/" class="uk-margin-small-left">Dashboard</a></li>
-          <li><span uk-icon="file-edit"></span><a href="#" class="uk-margin-small-left">Administrators</a></li>
-        </ul>
+        <div class="uk-grid uk-margin-remove uk-width-1-1">
+          <div class=" uk-margin-top uk-padding-remove"><span uk-icon="icon: search"></span></div>
+          <div class="uk-inline uk-padding-small">
+            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Search from<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
+            <div uk-dropdown="mode: click">
+              <li><a href="#" class="dropdown-option">Name</a></li>
+              <li><a href="#" class="dropdown-option">Email</a></li>
+              <li><a href="#" class="dropdown-option">Roles</a></li>
+              <li><a href="#" class="dropdown-option">Status</a></li>
+              <li><a href="#" class="dropdown-option">Date Created</a></li>
+            </div>
+          </div>
+          <div class="uk-form uk-form-width-medium uk-padding-small"><input class="uk-input partners-input" type="text" placeholder="Start typing here..." /></div>
+          <div class="uk-inline uk-padding-small">
+            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Filters<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
+            <div uk-dropdown="mode: click">
+              <li><a href="#" class="dropdown-option">Name</a></li>
+              <li><a href="#" class="dropdown-option">Email</a></li>
+              <li><a href="#" class="dropdown-option">Roles</a></li>
+              <li><a href="#" class="dropdown-option">Status</a></li>
+              <li><a href="#" class="dropdown-option">Date Created</a></li>
+            </div>
+          </div>
+          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded"><%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
+        </div>
       </div>
     </div>
     <div class="uk-grid uk-margin-remove uk-width-1-1">
