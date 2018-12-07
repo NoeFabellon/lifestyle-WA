@@ -168,45 +168,57 @@ $(document).on("turbolinks:load", function() {
   $("#listing_contract_type option:nth-child(1)").attr({ disabled: true });
   $("#listing_bedroom_type option:nth-child(1)").attr({ disabled: true });
 
-  animateExp();
-  function animateExp() {
+  animateExpSubCat();
+  function animateExpSubCat() {
     $(".side-nav").on("click", function(e) {
       if ($(this).attr("id") === "experiences-link") {
-        setTimeout(function() {
-          if ($("#toggle-animation").attr("aria-hidden") == "false") {
-            $("#experiences-link").addClass("active-page");
-          } else {
-            $("#experiences-link").removeClass("active-page");
-          }
-        }, 300);
-        $("#active-page").attr("id", "");
-      } else {
-        $("#experiences-link").removeClass("active-page");
-        setTimeout(function() {
-          $(this).attr("id", "");
-        }, 300);
+        if ($("#toggle-animation").hasClass("uk-hidden")) {
+          $("#toggle-animation").removeClass("uk-hidden");
+        } else {
+          $("#toggle-animation").addClass("uk-hidden");
+        }
       }
+
+      //  if ($(this).attr("id") === "experiences-link") {
+      //   setTimeout(function() {
+      //     if ($("#toggle-animation").attr("aria-hidden") == "false") {
+      //       $("#experiences-link").addClass("active-page");
+      //     } else {
+      //       $("#experiences-link").removeClass("active-page");
+      //    }
+      //   }, 300);
+      //   $("#active-page").attr("id", "");
+      // } else {
+      //   $("#experiences-link").removeClass("active-page");
+      //   setTimeout(function() {
+      //     $(this).attr("id", "");
+      //   }, 300);
+      // }
     });
   }
-
   if (window.location.pathname.includes("travels")) {
-    $("#experiences-link").addClass("active-page");
+    $("#toggle-animation").removeClass("uk-hidden");
+    $(".experience-main").addClass("active-page");
     $("#travel-nav-all").addClass("travel-active-link");
   }
   if (window.location.pathname.includes("foods")) {
-    $("#experiences-link").addClass("active-page");
+    $("#toggle-animation").removeClass("uk-hidden");
+    $(".experience-main").addClass("active-page");
     $("#food-nav-all").addClass("travel-active-link");
   }
   if (window.location.pathname.includes("lodgings")) {
-    $("#experiences-link").addClass("active-page");
+    $("#toggle-animation").removeClass("uk-hidden");
+    $(".experience-main").addClass("active-page");
     $("#lodging-nav-all").addClass("travel-active-link");
   }
   if (window.location.pathname.includes("wellness")) {
-    $("#experiences-link").addClass("active-page");
+    $("#toggle-animation").removeClass("uk-hidden");
+    $(".experience-main").addClass("active-page");
     $("#wellness-nav-all").addClass("travel-active-link");
   }
   if (window.location.pathname.includes("events")) {
-    $("#experiences-link").addClass("active-page");
+    $("#toggle-animation").removeClass("uk-hidden");
+    $(".experience-main").addClass("active-page");
     $("#event-nav-all").addClass("travel-active-link");
   }
 
@@ -339,4 +351,47 @@ $(document).on("turbolinks:load", function() {
       $("input#false").prop("checked", true);
     }
   }
+
+  //handle icon image
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#iconimg-output").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#iconimg").change(function() {
+    readURL(this);
+  });
+
+  //handle landing page image
+  function landingreadURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#landingpageimg-output").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#landingpageimg").change(function() {
+    landingreadURL(this);
+  });
+
+  //handle category page image
+  function categoryreadURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#categorypageimg-output").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#categorypageimg").change(function() {
+    categoryreadURL(this);
+  });
 });
