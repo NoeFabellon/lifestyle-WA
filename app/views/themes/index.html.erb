@@ -1,0 +1,612 @@
+<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<div class="main uk-section">
+  <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
+    <!-- add new theme modal -->
+    <div id="modal-overflow" uk-modal>
+      <div class="uk-modal-dialog uk-margin-remove-top uk-margin-remove-bottom theme-modal-dialog" uk-overflow-auto>
+        <div class="uk-modal-header"><h2 class="uk-modal-title">Add New Theme</h2></div>
+        <div class="uk-modal-body">
+          <form class="uk-form-stacked">
+            <div class="uk-padding">
+              <div class="uk-margin">
+                <label class="uk-form-label uk-text-bold" for="form-stacked-text">Theme Name</label>
+                <div class="uk-form-controls"><input class="uk-input uk-form-width-large" id="form-stacked-text" type="text" placeholder="Category Name" /></div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label uk-text-bold" for="themeimg-output">Image</label>
+                <div><%= image_tag('', id: 'themeimg-output', class: 'themeimage-output')%></div>
+                <div class="js-upload" uk-form-custom><input type="file" id="themeimg" multiple /> <button class="uk-button uk-button-default" type="button" tabindex="-1">UPLOAD</button></div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="uk-modal-footer uk-text-right"><button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button> <button class="uk-button uk-button-primary" type="button">Save</button></div>
+      </div>
+    </div>
+    <!-- end of modal -->
+    <!-- edit theme modal -->
+    <div id="modal-overflow2" uk-modal>
+      <div class="uk-modal-dialog uk-margin-remove-top uk-margin-remove-bottom theme-modal-dialog" uk-overflow-auto>
+        <div class="uk-modal-header"><h2 class="uk-modal-title">Edit Experience</h2></div>
+        <div class="uk-modal-body">
+          <form class="uk-form-stacked" action="/themes">
+            <div class="uk-padding">
+              <div class="uk-margin">
+                <label class="uk-form-label uk-text-bold" for="form-stacked-text">Theme Name</label>
+                <div class="uk-form-controls"><input class="uk-input uk-form-width-large" id="form-stacked-text" type="text" placeholder="Category Name" /></div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label uk-text-bold" for="editthemeimg-output">Image</label>
+                <div><%= image_tag('', id: 'editthemeimg-output', class: 'themeimage-output')%></div>
+                <div class="js-upload" uk-form-custom><input type="file" id="editthemeimg" multiple /> <button class="uk-button uk-button-default" type="button" tabindex="-1">UPLOAD</button></div>
+              </div>
+              <div class="uk-margin">
+                <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+                  <li id="theme-enable-button"><a href="#">Enable</a></li>
+                  <li class="uk-padding-remove"><a href="#">Disable</a></li>
+                </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="uk-modal-footer uk-text-right"><button class="uk-button uk-button-default uk-modal-close">Cancel</button> <button class="uk-button uk-button-primary uk-modal-close" id='theme-editing-save-button' type='submit'>Save</button></div>
+      </div>
+    </div>
+    <!-- end of modal -->
+    <!-- theme content modal -->
+    <div id="modal-overflow3" uk-modal>
+      <div class="uk-modal-dialog uk-margin-remove-top uk-margin-remove-bottom theme-content-modal-dialog" uk-overflow-auto>
+        <div class="uk-modal-header uk-position-relative">
+          <div class="uk-padding-small">
+            <h2 class="uk-modal-title uk-position-center uk-text-capitalize">for the fam</h2>
+          </div>
+        </div>
+        <div class="uk-modal-body">
+          <form class="uk-form-stacked">
+            <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+              data-uk-scrollspy="cls:uk-animation-fade;">
+              <thead>
+                <tr>
+                  <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Title</th>
+                  <th class="uk-text-capitalize table-column-name">Partner</th>
+                  <th class="uk-text-capitalize table-column-name">Category</th>
+                  <th class="uk-text-capitalize table-column-name">Action</th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+                <tr class="uk-padding-remove">
+                  <td>4-hour Baybayin Workshop</td>
+                  <td>Bell Magic Mountain Adventure Resort</td>
+                  <td>Playhouse</td>
+                  <td>
+                    <button id='0' class="uk-button-danger uk-border-rounded theme-delete-button"><span uk-icon="icon: trash"></span></button>
+                  </td>
+                </tr>
+                <tr class="uk-padding-remove">
+                  <td>4-hour Baybayin Workshop</td>
+                  <td>Bell Magic Mountain Adventure Resort</td>
+                  <td>Playhouse</td>
+                  <td>
+                    <button class="uk-button-danger uk-border-rounded theme-delete-button"><span uk-icon="icon: trash"></span></button>
+                  </td>
+                </tr>
+                <tr class="uk-padding-remove">
+                  <td>4-hour Baybayin Workshop</td>
+                  <td>Bell Magic Mountain Adventure Resort</td>
+                  <td>Playhouse</td>
+                  <td>
+                    <button class="uk-button-danger uk-border-rounded theme-delete-button"><span uk-icon="icon: trash"></span></button>
+                  </td>
+                </tr>
+                <tr class="uk-padding-remove">
+                  <td>4-hour Baybayin Workshop</td>
+                  <td>Bell Magic Mountain Adventure Resort</td>
+                  <td>Playhouse</td>
+                  <td>
+                    <button class="uk-button-danger uk-border-rounded theme-delete-button"><span uk-icon="icon: trash"></span></button>
+                  </td>
+                </tr>
+                <tr class="uk-padding-remove">
+                  <td>4-hour Baybayin Workshop</td>
+                  <td>Bell Magic Mountain Adventure Resort</td>
+                  <td>Playhouse</td>
+                  <td>
+                    <button class="uk-button-danger uk-border-rounded theme-delete-button"><span uk-icon="icon: trash"></span></button>
+                  </td>
+                </tr>
+                <tr class="uk-padding-remove">
+                  <td>4-hour Baybayin Workshop</td>
+                  <td>Bell Magic Mountain Adventure Resort</td>
+                  <td>Playhouse</td>
+                  <td>
+                    <button class="uk-button-danger uk-border-rounded theme-delete-button"><span uk-icon="icon: trash"></span></button>
+                  </td>
+                </tr>
+                <tr class="uk-padding-remove">
+                  <td>4-hour Baybayin Workshop</td>
+                  <td>Bell Magic Mountain Adventure Resort</td>
+                  <td>Playhouse</td>
+                  <td>
+                    <button class="uk-button-danger uk-border-rounded theme-delete-button"><span uk-icon="icon: trash"></span></button>
+                  </td>
+                </tr>
+                <tr class="uk-padding-remove">
+                  <td>4-hour Baybayin Workshop</td>
+                  <td>Bell Magic Mountain Adventure Resort</td>
+                  <td>Playhouse</td>
+                  <td>
+                    <button class="uk-button-danger uk-border-rounded theme-delete-button"><span uk-icon="icon: trash"></span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- end of modal -->
+    <div class="uk-grid uk-margin-remove">
+      <div class="uk-padding-remove"><h2>Theme</h2></div>
+    </div>
+    <div class="uk-grid uk-margin-remove breadcrumb uk-border-rounded">
+      <div class="uk-padding-small uk-margin-remove" uk-grid>
+        <div class="uk-padding-remove"><button id="theme-nav-all" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">ALL</button></div>
+        <div class="uk-padding-remove"><button id="theme-nav-tab1" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Travel</button></div>
+        <div class="uk-padding-remove"><button id="theme-nav-tab2" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Events</button></div>
+        <div class="uk-padding-remove"><button id="theme-nav-tab3" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Wellness</button></div>
+        <div class="uk-padding-remove"><button id="theme-nav-tab4" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Sports</button></div>
+        <div class="uk-padding-remove"><button id="theme-nav-tab5" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Classes</button></div>
+        <div class="uk-padding-remove"><button id="theme-nav-tab6" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link">Food</button></div>
+      </div>
+    </div>
+    <div class="table-container uk-margin-top">
+      <div id="all-content" class="theme-nav-all table-content uk-grid uk-margin-remove uk-width-1-1">
+        <div class="uk-padding-remove uk-width-1-1">
+          <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+            <div class="uk-padding-small localities-panel-header">
+              <span id="table-name">All</span> <a href="#modal-overflow" class="uk-button-primary uk-button-small uk-float-right uk-border-rounded" uk-toggle><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Theme</span></a>
+            </div>
+            <div class="uk-padding-small">
+              <div class="content-well p-x-2 p-y-2">
+                <div class="uk-container">
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab1-content" class="theme-nav-tab1 table-content uk-grid uk-margin-remove uk-width-1-1  uk-hidden">
+        <div class="uk-padding-remove uk-width-1-1">
+          <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+            <div class="uk-padding-small localities-panel-header">
+              <span id="table-name">Travel</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span>Add New Theme</span></button>
+            </div>
+            <div class="uk-padding-small">
+              <div class="content-well p-x-2 p-y-2">
+                <div class="uk-container">
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                      <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab2-content" class="theme-nav-tab2 table-content uk-grid uk-margin-remove uk-width-1-1  uk-hidden">
+        <div class="uk-padding-remove uk-width-1-1">
+          <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+            <div class="uk-padding-small localities-panel-header">
+              <span id="table-name">Events</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span>Add New Theme</span></button>
+            </div>
+            <div class="uk-padding-small">
+              <div class="content-well p-x-2 p-y-2">
+                <div class="uk-container">
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab3-content" class="theme-nav-tab3 table-content uk-grid uk-margin-remove uk-width-1-1  uk-hidden">
+        <div class="uk-padding-remove uk-width-1-1">
+          <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+            <div class="uk-padding-small localities-panel-header">
+              <span id="table-name">Wellness</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span>Add New Theme</span></button>
+            </div>
+            <div class="uk-padding-small">
+              <div class="content-well p-x-2 p-y-2">
+                <div class="uk-container">
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab4-content" class="theme-nav-tab4 table-content uk-grid uk-margin-remove uk-width-1-1  uk-hidden">
+        <div class="uk-padding-remove uk-width-1-1">
+          <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+            <div class="uk-padding-small localities-panel-header">
+              <span id="table-name">Sports</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span>Add New Theme</span></button>
+            </div>
+            <div class="uk-padding-small">
+              <div class="content-well p-x-2 p-y-2">
+                <div class="uk-container">
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab5-content" class="theme-nav-tab5 table-content uk-grid uk-margin-remove uk-width-1-1  uk-hidden">
+        <div class="uk-padding-remove uk-width-1-1">
+          <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+            <div class="uk-padding-small localities-panel-header">
+              <span id="table-name">Classes</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span>Add New Theme</span></button>
+            </div>
+            <div class="uk-padding-small">
+              <div class="content-well p-x-2 p-y-2">
+                <div class="uk-container">
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab6-content" class="theme-nav-tab6 table-content uk-grid uk-margin-remove uk-width-1-1  uk-hidden">
+        <div class="uk-padding-remove uk-width-1-1">
+          <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
+            <div class="uk-padding-small localities-panel-header">
+              <span id="table-name">Food</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span>Add New Theme</span></button>
+            </div>
+            <div class="uk-padding-small">
+              <div class="content-well p-x-2 p-y-2">
+                <div class="uk-container">
+                  <div class="uk-grid-match uk-height-small uk-child-width-1-4 uk-text-center" uk-grid>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                    <div class="uk-position-relative">
+                      <a href="#modal-overflow3" class="uk-position-relative uk-padding uk-border-rounded themes-card" uk-toggle> <span
+                          class="uk-text-large uk-position-center uk-text-uppercase uk-text-bold">For The Fam</span> </a>
+                          <div class="uk-height-1-1 uk-hidden uk-position-center uk-width-1-1" style="cursor: not-allowed;"></div>
+                      <a href="#modal-overflow2" class="uk-position-top-right uk-width-1-6 theme-pencil-icon" uk-toggle><span uk-icon="icon: pencil; ratio: 1.5"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

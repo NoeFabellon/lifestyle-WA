@@ -386,10 +386,62 @@ $(document).on("turbolinks:load", function() {
     categoryreadURL(this);
   });
 
-  // $("#burger-button").on("click", function(e) {
-  //   console.log($("#side-nav").css("display"));
-  // });
-  // $(window).resize(function(e) {
-  //   console.log($(window).width());
-  // });
+  //active subnav all at themes
+  if (window.location.pathname.includes("themes")) {
+    $("#theme-nav-all").addClass("travel-active-link");
+  }
+  //handle add theme image
+  function themereadURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#themeimg-output").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#themeimg").change(function() {
+    themereadURL(this);
+  });
+
+  //handle edit theme image
+  function editthemereadURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#editthemeimg-output").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#editthemeimg").change(function() {
+    editthemereadURL(this);
+  });
+
+  //when save button is click
+  $(".theme-pencil-icon").on("click", e => {
+    $("#theme-editing-save-button").on("click", function() {
+      if ($("#theme-enable-button").hasClass("uk-active")) {
+        $(e.currentTarget.parentElement.children[1]).addClass("uk-hidden");
+      } else {
+        $(e.currentTarget.parentElement.children[1]).removeClass("uk-hidden");
+      }
+    });
+  });
+
+  // delete experience at theme
+
+  $(".theme-delete-button").on("click", e => {
+    e.preventDefault();
+    // console.log("asdasd");
+    var result = confirm("Are you sure?");
+    console.log(result);
+    if (result) {
+      setTimeout(() => {
+        $(e.currentTarget.parentElement.parentElement).remove();
+      }, 500);
+      //   // var table = document.getElementById("myTable");
+      //   // table.removeChild(table.childNodes[0]);
+    }
+  });
 });
