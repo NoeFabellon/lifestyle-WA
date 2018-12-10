@@ -47,22 +47,18 @@
 <% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
 <div class="main uk-section">
   <div class="uk-container dashboard-container uk-margin-large-top">
-    <div class="uk-grid uk-margin-remove uk-width-1-1">
-      <div class="uk-width-1-2 uk-padding-remove-left">
-        <div class="uk-grid uk-margin-remove total-earnings">
-          <div class="uk-grid uk-margin-remove uk-width-1-1 uk-padding-remove-left"><span class="uk-padding-remove-left span-total-earnings">TOTAL EARNINGS - Sample only</span></div>
-          <div class="uk-grid uk-margin-remove uk-width-1-1 uk-padding-remove-left"><h2 class="uk-margin-remove-top uk-padding-remove-left uk-text-bold">PHP 100.00</h2></div>
-        </div>
+    <div class="uk-grid uk-margin-remove uk-width-1-1 uk-position-relative">
+      <div>
+        <div class="uk-grid"><span class="uk-padding-remove-left uk-position-top-left uk-text-left@s span-total-earnings">TOTAL EARNINGS - Sample only</span></div>
+        <div class="uk-grid"><h2 class="uk-margin-remove-top uk-padding-remove-left uk-postion-bottom-left uk-text-bold">PHP 100.00</h2></div>
       </div>
-      <div class="uk-width-1-2 uk-padding-remove-left">
-        <div class="uk-grid uk-margin-remove current-statement">
-          <div class="uk-grid uk-margin-remove uk-width-1-1 uk-padding-remove-left"><span class="uk-padding-remove-left span-earnings">PAY PERIOD</span></div>
-          <div class="uk-grid uk-margin-remove uk-width-1-1 uk-padding-remove-left">
-            <select class="uk-form-select" data-uk-form-select>
-              <option value="">Current Statement</option>
-              <option value="">Previous Statement</option>
-            </select>
-          </div>
+      <div>
+        <div class="uk-grid"><span class="uk-padding-remove-left span-earnings uk-position-top-right">PAY PERIOD</span></div>
+        <div class="uk-grid">
+          <select class="uk-form-select uk-position-bottom-right" data-uk-form-select>
+            <option value="">Current Statement</option>
+            <option value="">Previous Statement</option>
+          </select>
         </div>
       </div>
     </div>
@@ -90,23 +86,17 @@
     <div class="uk-grid uk-margin  uk-margin-medium-top"><h3>Weekly Earnings</h3></div>
     <div class="uk-grid uk-width-1-1 uk-margin-remove uk-border-rounded earning-list">
       <div class="uk-grid uk-width-1-1 uk-margin-remove container-list">
-        <a href="#" class="uk-grid uk-width-1-1 uk-margin-remove container-list-item">
-          <div class="uk-grid uk-width-2-3 earnings-label"><span class="earnings">Earnings</span></div>
-          <div class="uk-grid uk-width-1-3 uk-margin-remove-top"><span class="uk-text-bold weekly-earning">PHP10,000</span></div>
+        <a href="#" class="uk-grid uk-width-1-1 uk-margin-remove uk-position-relative container-list-item">
+          <div class="earnings-label"><span class="earnings">Earnings</span></div>
+          <div><span class="uk-text-bold uk-position-right">PHP10,000</span></div>
         </a>
         <div class="uk-grid uk-width-1-1 uk-margin-remove container-list-item">
-          <a href="#" class="uk-grid uk-width-1-1">
-            <div class="uk-grid uk-width-2-3"><span class="earnings">Earnings</span></div>
-            <div class="uk-grid uk-width-1-3 uk-margin-remove-top"><span class="uk-text-bold weekly-earning-mid">PHP10,000</span></div>
-          </a>
-          <a href="#" class="uk-grid uk-width-1-1 uk-margin-remove-top">
-            <div class="uk-grid uk-width-2-3"><span class="earnings">Earnings</span></div>
-            <div class="uk-grid uk-width-1-3 uk-margin-remove-top"><span class="uk-text-bold weekly-earning-mid">PHP10,000</span></div>
-          </a>
+          <a href="#" class="uk-grid uk-width-1-1 uk-margin-remove uk-position-relative"> <span class="earnings uk-padding-remove">Earnings</span> <span class="uk-text-bold uk-position-right">PHP10,000</span> </a>
+          <a href="#" class="uk-grid uk-width-1-1 uk-margin-remove uk-position-relative"> <span class="earnings uk-padding-remove">Earnings</span> <span class="uk-text-bold uk-position-right">PHP10,000</span> </a>
         </div>
-        <a href="#" class="uk-grid uk-width-1-1 uk-margin-remove container-list-item">
-          <div class="uk-grid uk-width-2-3"><span class="uk-text-bold earnings-label">Estimated Bank Deposit</span></div>
-          <div class="uk-grid uk-width-1-3 uk-margin-remove-top"><span class="uk-text-bold weekly-earning">PHP10,000</span></div>
+        <a href="#" class="uk-grid uk-width-1-1 uk-margin-remove uk-position-relative container-list-item">
+          <div><span class="uk-text-bold earnings-label">Estimated Bank Deposit</span></div>
+          <div class="uk-grid uk-width-1-3 uk-margin-remove-top"><span class="uk-text-bold uk-position-right">PHP10,000</span></div>
         </a>
       </div>
     </div>
