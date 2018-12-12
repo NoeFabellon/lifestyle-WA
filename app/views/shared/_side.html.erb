@@ -23,7 +23,7 @@
         <li><%= link_to '#' , class: 'side-nav' do %><%= image_tag('audit-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Audit Trail</span> <%end%></li>
         <li><%= link_to users_path , id: active_page?(users_path), class: 'side-nav' do %><%= image_tag('admin-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Administrators</span> <%end%></li>
         <li><%= link_to themes_path , id: active_page?(themes_path), class: 'side-nav' do %> <%= image_tag('admin-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Themes</span> <%end%></li>
-        <li><%= link_to featured_index_path , class: 'side-nav' do %> <%= image_tag('admin-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Featured</span> <%end%></li>
+        <li><%= link_to featured_index_path , id: active_page?(featured_index_path), class: 'side-nav' do %> <%= image_tag('admin-icon.png', class: 'uk-margin-small-right uk-icon-image side-nav-icons')%><span>Featured</span> <%end%></li>
       </ul>
     </div>
   </ul>
