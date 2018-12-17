@@ -433,15 +433,69 @@ $(document).on("turbolinks:load", function() {
 
   $(".theme-delete-button").on("click", e => {
     e.preventDefault();
-    // console.log("asdasd");
     var result = confirm("Are you sure?");
     console.log(result);
     if (result) {
       setTimeout(() => {
         $(e.currentTarget.parentElement.parentElement).remove();
       }, 500);
-      //   // var table = document.getElementById("myTable");
-      //   // table.removeChild(table.childNodes[0]);
     }
   });
+
+  //handle add feature image
+  function addfeaturereadURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#featureimg-output").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#featureimg").change(function() {
+    addfeaturereadURL(this);
+  });
+
+  //handle edit feature image
+  function editfeaturereadURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $("#editfeatureimg-output").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#editfeatureimg").change(function() {
+    editfeaturereadURL(this);
+  });
+
+  //when save button is click
+  $(".feature-pencil-icon").on("click", e => {
+    $("#feature-editing-save-button").on("click", function() {
+      if ($("#feature-enable-button").hasClass("uk-active")) {
+        $(e.currentTarget.parentElement.children[1]).addClass("uk-hidden");
+      } else {
+        $(e.currentTarget.parentElement.children[1]).removeClass("uk-hidden");
+      }
+    });
+  });
+
+  // delete experience at feature
+
+  $(".feature-delete-button").on("click", e => {
+    e.preventDefault();
+    var result = confirm("Are you sure?");
+    console.log(result);
+    if (result) {
+      setTimeout(() => {
+        $(e.currentTarget.parentElement.parentElement).remove();
+      }, 500);
+    }
+  });
+
+  //active subnav all at feature
+  if (window.location.pathname.includes("featured")) {
+    $("#feature-nav-all").addClass("travel-active-link");
+  }
 });
