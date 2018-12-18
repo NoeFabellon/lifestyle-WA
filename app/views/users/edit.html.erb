@@ -1,8 +1,16 @@
-<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<% content_for :header do %>
+<%= render 'shared/menu' %>
+<% end %>
+<% content_for :side do %>
+<%= render 'shared/side' %>
+<% end %>
+<% content_for :content do %>
 <div class="main uk-section">
   <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
     <div class="uk-grid uk-margin-remove">
-      <div class="uk-padding-remove"><h2>Administrator / User</h2></div>
+      <div class="uk-padding-remove">
+        <h2>Administrator / User</h2>
+      </div>
     </div>
     <div class="uk-grid uk-margin-remove uk-width-1-1">
       <div class="uk-padding-remove uk-width-1-1">
@@ -11,57 +19,78 @@
           <div>
             <div class="content-well p-x-2 p-y-2">
               <div class="uk-container">
-                <%= form_for :user, url: user_path(@user['id']), method: :put, remote: true do |f| %>
+                <%= form_for :user, url: user_path(@user['id']) , method: :put, remote: true do |f| %>
                 <div class="uk-container uk-width-1-2">
                   <fieldset class="uk-fieldset">
                     <div class="uk-margin uk-hidden">
                       <label class="uk-form-label" for="form-horizontal-text">Username</label>
-                      <div class="uk-form-controls"><%= f.text_field :username, class: 'uk-input', value: @user['username'], readonly:true %></div>
+                      <div class="uk-form-controls">
+                        <%= f.text_field :username, class: 'uk-input', value: @user['username'], readonly:true %>
+                      </div>
                     </div>
                     <div class="uk-margin uk-hidden">
                       <label class="uk-form-label" for="form-horizontal-text">Full Name</label>
-                      <div class="uk-form-controls"><%= f.text_field :fullName, class: 'uk-input', value: @user['fullName'], readonly:true %></div>
+                      <div class="uk-form-controls">
+                        <%= f.text_field :fullName, class: 'uk-input', value: @user['fullName'], readonly:true %>
+                      </div>
                     </div>
                     <div class="uk-margin">
                       <label class="uk-form-label uk-text-bold" for="form-horizontal-text">Email</label>
-                      <div class="uk-form-controls"><%= f.text_field :email, class: 'uk-input', value: @user['email'], readonly:true %></div>
+                      <div class="uk-form-controls">
+                        <%= f.text_field :email, class: 'uk-input', value: @user['email'], readonly:true %>
+                      </div>
                     </div>
                     <div class="uk-margin">
                       <label class="uk-form-label uk-text-bold" for="form-horizontal-text">First Name</label>
-                      <div class="uk-form-controls"><%= f.text_field :firstName, class: 'uk-input', value: @user['firstName'] %></div>
+                      <div class="uk-form-controls">
+                        <%= f.text_field :firstName, class: 'uk-input', value: @user['firstName'] %>
+                      </div>
                     </div>
                     <div class="uk-margin">
                       <label class="uk-form-label uk-text-bold" for="form-horizontal-text">Last Name</label>
-                      <div class="uk-form-controls"><%= f.text_field :lastName, class: 'uk-input', value: @user['lastName'] %></div>
+                      <div class="uk-form-controls">
+                        <%= f.text_field :lastName, class: 'uk-input', value: @user['lastName'] %>
+                      </div>
                     </div>
                     <div class="uk-margin">
                       <label class="uk-form-label uk-text-bold" for="form-horizontal-text">Password</label>
-                      <div class="uk-form-controls"><%= f.password_field :password, placeholder: 'Password', class: 'uk-input' %></div>
+                      <div class="uk-form-controls">
+                        <%= f.password_field :password, placeholder: 'Password', class: 'uk-input' %>
+                      </div>
                     </div>
                     <div class="uk-margin">
                       <label class="uk-form-label uk-text-bold" for="form-horizontal-text">Confirm Password</label>
-                      <div class="uk-form-controls"><%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: 'uk-input' %></div>
+                      <div class="uk-form-controls">
+                        <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: 'uk-input' %>
+                      </div>
                     </div>
                     <div class="uk-margin">
                       <label class="uk-form-label uk-text-bold" for="form-horizontal-text">Roles</label>
-                      <div class="uk-form-controls uk-hidden"><%= f.text_field :roles, class: 'uk-input', value: @user['roles'] %></div>
+                      <div class="uk-form-controls uk-hidden">
+                        <%= f.text_field :roles, class: 'uk-input', value: @user['roles'] %>
+                      </div>
                       <div class="uk-form-controls">
                         <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid" id="checkbox">
                           <div class="uk-width-1-3">
-                            <label><input class="uk-checkbox uk-border-rounded" type="checkbox" value="ROLE_BACKOFFICE_ADMIN" id="administrator" /> Administrator</label>
+                            <label><input class="uk-checkbox uk-border-rounded" type="checkbox" value="ROLE_BACKOFFICE_ADMIN"
+                                id="administrator" /> Administrator</label>
                           </div>
                           <div class="uk-width-1-3">
-                            <label><input class="uk-checkbox uk-border-rounded" type="checkbox" value="ROLE_BACKOFFICE_USER" id="staff" /> Staff</label>
+                            <label><input class="uk-checkbox uk-border-rounded" type="checkbox" value="ROLE_BACKOFFICE_USER"
+                                id="staff" /> Staff</label>
                           </div>
                           <div class="uk-width-1-3">
-                            <label><input class="uk-checkbox uk-border-rounded" type="checkbox" value="ROLE_BACKOFFICE_SALES" id="sales" /> Sales</label>
+                            <label><input class="uk-checkbox uk-border-rounded" type="checkbox" value="ROLE_BACKOFFICE_SALES"
+                                id="sales" /> Sales</label>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="uk-margin">
                       <label class="uk-form-label uk-text-bold" for="form-horizontal-text">Status</label>
-                      <div class="uk-form-controls uk-hidden"><%= f.text_field :enabled, class: 'uk-input', value: @user['enabled'] %></div>
+                      <div class="uk-form-controls uk-hidden">
+                        <%= f.text_field :enabled, class: 'uk-input', value: @user['enabled'] %>
+                      </div>
                       <div class="uk-form-controls">
                         <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
                           <div class="uk-width-1-3">
@@ -73,7 +102,10 @@
                         </div>
                       </div>
                     </div>
-                    <div class="uk-margin"><%= f.submit "Submit", class: "submit-button uk-button uk-width-1-1 uk-text-capitalize uk-border-rounded"%> <%= link_to "Cancel", users_path, class: "cancel-button uk-button uk-width-1-1 uk-text-capitalize uk-border-rounded uk-button-default"%></div>
+                    <div class="uk-margin">
+                      <%= f.submit "Submit", class: "submit-button uk-button uk-width-1-1 uk-text-capitalize uk-border-rounded"%>
+                      <%= link_to "Cancel", users_path, class: "cancel-button uk-button uk-width-1-1 uk-text-capitalize uk-border-rounded uk-button-default"%>
+                    </div>
                   </fieldset>
                 </div>
                 <% end %>
