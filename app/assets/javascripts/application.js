@@ -18,7 +18,7 @@
 //= require uikit/uikit-icons.js
 //= require_tree .
 
-$(document).on("turbolinks:load", function() {
+$(document).on("turbolinks:load", function () {
   // Show and hide alert on login
   if ($(".alert").html() == "") {
     $(".uk-alert-danger").hide();
@@ -26,12 +26,12 @@ $(document).on("turbolinks:load", function() {
     $(".uk-alert-danger").show();
   }
   // Show modal on add listing
-  $("#js-modal-prompt").click(function() {
+  $("#js-modal-prompt").click(function () {
     $(".uk-modal").show();
     details();
   });
   // Hide modal
-  $(".uk-modal-close-default").click(function() {
+  $(".uk-modal-close-default").click(function () {
     $(".uk-modal").hide();
   });
 
@@ -46,7 +46,7 @@ $(document).on("turbolinks:load", function() {
     $(".uk-tab li:nth-child(1)").addClass("uk-active");
   }
 
-  $("a#tab-details").click(function() {
+  $("a#tab-details").click(function () {
     details();
   });
 
@@ -58,7 +58,7 @@ $(document).on("turbolinks:load", function() {
     $(".uk-tab li:nth-child(2)").addClass("uk-active");
   }
 
-  $("a#tab-location").click(function() {
+  $("a#tab-location").click(function () {
     location();
   });
 
@@ -70,13 +70,13 @@ $(document).on("turbolinks:load", function() {
     $(".uk-tab li:nth-child(3)").addClass("uk-active");
   }
 
-  $("a#tab-features").click(function() {
+  $("a#tab-features").click(function () {
     features();
   });
 
   // Capitalize words
   function keyUp(e) {
-    $(e).keyup(function() {
+    $(e).keyup(function () {
       var str = $(e).val();
       var spart = str.split(" ");
       for (var i = 0; i < spart.length; i++) {
@@ -113,7 +113,7 @@ $(document).on("turbolinks:load", function() {
         }
       }
     }
-    $("span.uk-badge a").click(function() {
+    $("span.uk-badge a").click(function () {
       let a_id = $(this).attr("id");
       $(`span#${a_id}`).remove();
     });
@@ -121,16 +121,16 @@ $(document).on("turbolinks:load", function() {
 
   // Feature button
   $("div.feature-dropdown").hide();
-  $("#listing_temp").click(function() {
+  $("#listing_temp").click(function () {
     $("div#feature-dropdown-one").toggle();
   });
 
-  $("#listing_temp").keypress(function() {
+  $("#listing_temp").keypress(function () {
     $("div#feature-dropdown-one").hide();
   });
 
   // add tag by select
-  $("a.dropdown-tags").click(function() {
+  $("a.dropdown-tags").click(function () {
     $("#listing_temp").val("");
     let span_count = $("span.uk-badge").size();
     if (span_count < 5) {
@@ -140,7 +140,7 @@ $(document).on("turbolinks:load", function() {
   });
 
   // add tag by text
-  $("#add-feature-tag").click(function() {
+  $("#add-feature-tag").click(function () {
     let tag = $("#listing_temp").val();
     if (tag != "") {
       addTag(tag);
@@ -153,7 +153,7 @@ $(document).on("turbolinks:load", function() {
     $("div.uk-modal-body").addClass("disabledbutton");
   }
 
-  $("select.status-select").change(function() {
+  $("select.status-select").change(function () {
     if ($(this).val() == "inactive") {
       $("div.uk-modal-header").addClass("disabledbutton");
       $("div.uk-modal-body").addClass("disabledbutton");
@@ -168,7 +168,7 @@ $(document).on("turbolinks:load", function() {
   $("#listing_contract_type option:nth-child(1)").attr({ disabled: true });
   $("#listing_bedroom_type option:nth-child(1)").attr({ disabled: true });
 
-  $(".side-nav").on("click", function(e) {
+  $(".side-nav").on("click", function (e) {
     if ($(this).attr("id") === "experiences-link") {
       if ($("#toggle-animation").hasClass("uk-hidden")) {
         $("#toggle-animation").removeClass("uk-hidden");
@@ -177,7 +177,7 @@ $(document).on("turbolinks:load", function() {
       }
     }
   });
-  $("#experiences-link2").on("click", function(e) {
+  $("#experiences-link2").on("click", function (e) {
     if ($(this).attr("id") === "experiences-link2") {
       if ($("#toggle-animation2").hasClass("uk-hidden")) {
         $("#toggle-animation2").removeClass("uk-hidden");
@@ -213,7 +213,7 @@ $(document).on("turbolinks:load", function() {
     $("#event-nav-all").addClass("travel-active-link");
   }
 
-  $(".travel-nav-link").click(function(e) {
+  $(".travel-nav-link").click(function (e) {
     // //remove all navlink color
     $(".travel-nav-link").removeClass("travel-active-link");
     //hide all content
@@ -347,14 +347,14 @@ $(document).on("turbolinks:load", function() {
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         $("#iconimg-output").attr("src", e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
     }
   }
 
-  $("#iconimg").change(function() {
+  $("#iconimg").change(function () {
     readURL(this);
   });
 
@@ -362,13 +362,13 @@ $(document).on("turbolinks:load", function() {
   function landingreadURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         $("#landingpageimg-output").attr("src", e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#landingpageimg").change(function() {
+  $("#landingpageimg").change(function () {
     landingreadURL(this);
   });
 
@@ -376,13 +376,13 @@ $(document).on("turbolinks:load", function() {
   function categoryreadURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         $("#categorypageimg-output").attr("src", e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#categorypageimg").change(function() {
+  $("#categorypageimg").change(function () {
     categoryreadURL(this);
   });
 
@@ -394,13 +394,13 @@ $(document).on("turbolinks:load", function() {
   function themereadURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         $("#themeimg-output").attr("src", e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#themeimg").change(function() {
+  $("#themeimg").change(function () {
     themereadURL(this);
   });
 
@@ -408,19 +408,19 @@ $(document).on("turbolinks:load", function() {
   function editthemereadURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         $("#editthemeimg-output").attr("src", e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#editthemeimg").change(function() {
+  $("#editthemeimg").change(function () {
     editthemereadURL(this);
   });
 
   //when save button is click
   $(".theme-pencil-icon").on("click", e => {
-    $("#theme-editing-save-button").on("click", function() {
+    $("#theme-editing-save-button").on("click", function () {
       if ($("#theme-enable-button").hasClass("uk-active")) {
         $(e.currentTarget.parentElement.children[1]).addClass("uk-hidden");
       } else {
@@ -446,13 +446,13 @@ $(document).on("turbolinks:load", function() {
   function addfeaturereadURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         $("#featureimg-output").attr("src", e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#featureimg").change(function() {
+  $("#featureimg").change(function () {
     addfeaturereadURL(this);
   });
 
@@ -460,19 +460,19 @@ $(document).on("turbolinks:load", function() {
   function editfeaturereadURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         $("#editfeatureimg-output").attr("src", e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#editfeatureimg").change(function() {
+  $("#editfeatureimg").change(function () {
     editfeaturereadURL(this);
   });
 
   //when save button is click
   $(".feature-pencil-icon").on("click", e => {
-    $("#feature-editing-save-button").on("click", function() {
+    $("#feature-editing-save-button").on("click", function () {
       if ($("#feature-enable-button").hasClass("uk-active")) {
         $(e.currentTarget.parentElement.children[1]).addClass("uk-hidden");
       } else {
@@ -498,4 +498,5 @@ $(document).on("turbolinks:load", function() {
   if (window.location.pathname.includes("featured")) {
     $("#feature-nav-all").addClass("travel-active-link");
   }
+
 });

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bliimo Web Admin</title>
-    <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="turbolinks-visit-control" content="reload">
+<head>
+  <title>Bliimo Web Admin</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="turbolinks-visit-control" content="reload">
+  <%= Gon::Base.render_data %>
+</head>
 
-  </head>
+<body>
+  <%= yield :header %>
+  <%= yield :side %>
+  <%= yield :content %>
+</body>
 
-  <body>
-    <%= yield :header %>
-    <%= yield :side %>
-    <%= yield :content %>
-  </body>
 </html>
-

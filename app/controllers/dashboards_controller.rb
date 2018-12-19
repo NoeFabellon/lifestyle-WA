@@ -5,6 +5,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards.json
   def index
     @dashboards = Dashboard.all
+    Gon.global.currentUser = current_user
   end
 
   # GET /dashboards/1

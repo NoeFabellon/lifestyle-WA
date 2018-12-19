@@ -39,7 +39,7 @@
           <div class="uk-padding-small localities-panel-header">
             <span>Administrators</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Admin</span></button>
           </div>
-          <div class="uk-padding small table-content-container">
+          <div class="uk-padding small table-content-container" id=users-table>
             <div class="content-well p-x-2 p-y-2">
               <div class="uk-container">
                 <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
@@ -54,16 +54,6 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% @users.each do |user| %>
-                    <tr class="uk-padding-remove">
-                      <td><%= user['fullName'] %></td>
-                      <td><%= user['email'] %></td>
-                      <td><% user['roles'].each do |role| %> <%= role %> <% end %></td>
-                      <td><% if user['enabled'] %> Enabled <% else %> Disabled <% end %></td>
-                      <td><%= format_date(user['dateCreated']) %></td>
-                      <td><%= button_to edit_user_path(user['id']), :method => "get", class:'uk-button-primary uk-border-rounded' do%><span uk-icon="icon: pencil"></span><%end%></td>
-                    </tr>
-                    <% end %>
                   </tbody>
                 </table>
               </div>
