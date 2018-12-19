@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require process.js
 //= require uikit
 //= require uikit/uikit.js
 //= require uikit/uikit-icons.js
