@@ -15,7 +15,7 @@ $(document).on("turbolinks:load", () => {
     else {
       new_role = capitalizeFirstLetter(user.roles[0].substr(user.roles[0].lastIndexOf("_") + 1).toLowerCase());
     }
-    $('#users-table table tbody').append(`
+    $('#users-table tbody').append(`
       <tr class="uk-padding-remove">
         <td>${user.fullName}</td>
         <td>${user.email}</td>
@@ -30,4 +30,42 @@ $(document).on("turbolinks:load", () => {
       </tr>
     `);
   });
+  //change dropdrown label when click dropdown option
+  $('.users-filter').on("click", e => {
+    document.getElementById("users-dropdown-label").innerHTML = e.currentTarget.innerHTML;
+  });
+  $('#users-search-field').on("keyup", e => {
+    searchby = document.getElementById("users-dropdown-label").innerHTML;
+    if (searchby == 'Search from' || searchby == 'Name') {
+      td_index = 0;
+    }
+    else if (searchby == 'Email') {
+      td_index = 1;
+    }
+    else if (searchby == 'Roles') {
+      td_index = 2;
+    }
+    else if (searchby == 'Status') {
+      td_index = 3;
+    }
+    else if (searchby == 'Date Created') {
+      td_index = 4;
+    }
+    input = document.getElementById("users-search-field");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("users-table");
+    tr = table.getElementsByTagName("tr");
+    $('#users-table').removeClass('uk-table-striped');
+    searchData(td_index, input, filter, table, tr);
+  });
+  //ascending descending
+  $('#users-asc-dsc-button').on("click", e => {
+    $("tbody").each(function (elem, index) {
+      var arr = $.makeArray($("tr", this).detach());
+      arr.reverse();
+      $(this).append(arr);
+    });
+  });
+
+
 });
