@@ -1,37 +1,38 @@
-<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<% content_for :header do %>
+<%= render 'shared/menu' %>
+<% end %>
+<% content_for :side do %>
+<%= render 'shared/side' %>
+<% end %>
+<% content_for :content do %>
 <div class="main uk-section">
   <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
     <div class="uk-grid uk-margin-remove">
-      <div class="uk-padding-remove"><h2>Transactions</h2></div>
+      <div class="uk-padding-remove">
+        <h2>Transactions</h2>
+      </div>
     </div>
     <div class="uk-grid uk-width-1-1 uk-margin-remove">
       <div class="uk-padding-small uk-width-1-1">
         <div class="uk-grid uk-margin-remove uk-width-1-1">
           <div class=" uk-margin-top uk-padding-remove"><span uk-icon="icon: search"></span></div>
           <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-width-1-1 uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button"><span uk-icon="icon: triangle-down" class="uk-margin-xlarge-left"></span></button>
+            <button class="uk-button uk-width-1-1 uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown"
+              type="button"><span id='transactions-dropdown-label'>Search from</span><span uk-icon="icon: triangle-down"
+                class="uk-margin-left"></span></button>
             <div uk-dropdown="mode: click">
-              <li><a href="#" class="dropdown-option">Reference No</a></li>
-              <li><a href="#" class="dropdown-option">Customer</a></li>
-              <li><a href="#" class="dropdown-option">Method</a></li>
-              <li><a href="#" class="dropdown-option">Amount</a></li>
-              <li><a href="#" class="dropdown-option">Date</a></li>
-              <li><a href="#" class="dropdown-option">Status</a></li>
+              <li><a href="#" class="dropdown-option transactions-filter">Reference No</a></li>
+              <li><a href="#" class="dropdown-option transactions-filter">Customer</a></li>
+              <li><a href="#" class="dropdown-option transactions-filter">Method</a></li>
+              <li><a href="#" class="dropdown-option transactions-filter">Amount</a></li>
+              <li><a href="#" class="dropdown-option transactions-filter">Date</a></li>
+              <li><a href="#" class="dropdown-option transactions-filter">Status</a></li>
             </div>
           </div>
-          <div class="uk-form uk-form-width-medium uk-padding-small"><input class="uk-input partners-input" type="text" placeholder="Start typing here..." /></div>
-          <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Filters<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
-            <div uk-dropdown="mode: click">
-              <li><a href="#" class="dropdown-option">Reference No</a></li>
-              <li><a href="#" class="dropdown-option">Customer</a></li>
-              <li><a href="#" class="dropdown-option">Method</a></li>
-              <li><a href="#" class="dropdown-option">Amount</a></li>
-              <li><a href="#" class="dropdown-option">Date</a></li>
-              <li><a href="#" class="dropdown-option">Status</a></li>
-            </div>
-          </div>
-          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded"><%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
+          <div class="uk-form uk-form-width-medium uk-padding-small"><input id="transactions-search-field" class="uk-input partners-input"
+              type="text" placeholder="Start typing here..." /></div>
+          <div class="uk-padding-small"><button id="transactions-asc-dsc-button" class="uk-button-primary uk-border-rounded">
+              <%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
         </div>
       </div>
     </div>
@@ -39,21 +40,26 @@
       <div class="uk-padding-remove uk-width-1-1">
         <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
           <div class="uk-padding-small localities-panel-header">
-            <span>Transactions</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Transactions</span></button>
+            <span>Transactions</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span
+                uk-icon="icon: plus; ratio: .8"></span><span> Add New Transactions</span></button>
           </div>
-          <div class="uk-padding-small table-content-container" id='transactions-table'>
+          <div class="uk-padding-small table-content-container">
             <div class="content-well p-x-2 p-y-2">
               <div class="uk-container">
-                <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
+                <table id='transactions-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  data-uk-scrollspy="cls:uk-animation-fade;">
                   <thead>
                     <tr>
-                      <th class="uk-text-capitalize table-column-name"><%= image_tag('sorting-icon.png', class: 'updown-image') %>Txn Ref No.</th>
+                      <th class="uk-text-capitalize table-column-name">
+                        <%= image_tag('sorting-icon.png', class: 'updown-image') %>Txn Ref No.</th>
                       <th class="uk-text-capitalize table-column-name">Customer</th>
                       <th class="uk-text-capitalize table-column-name">Method</th>
                       <th class="uk-text-capitalize table-column-name">Amount</th>
-                      <th class="uk-text-capitalize table-column-name"><%= image_tag('sorting-icon.png', class: 'updown-image') %>Txn Date</th>
+                      <th class="uk-text-capitalize table-column-name">
+                        <%= image_tag('sorting-icon.png', class: 'updown-image') %>Txn Date</th>
                       <th class="uk-text-capitalize table-column-name">Payment Date / Ref</th>
-                      <th class="uk-text-capitalize table-column-name"><%= image_tag('sorting-icon.png', class: 'updown-image') %>Status</th>
+                      <th class="uk-text-capitalize table-column-name">
+                        <%= image_tag('sorting-icon.png', class: 'updown-image') %>Status</th>
                     </tr>
                   </thead>
                   <tbody>

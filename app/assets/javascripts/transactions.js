@@ -34,7 +34,7 @@ $(document).on("turbolinks:load", () => {
     else if (transaction.paymentStatus == 'PENDING') {
       status = "<span class='uk-text-bold uk-text-warning'>PENDING</span>"
     }
-    $('#transactions-table table tbody').append(`
+    $('#transactions-table tbody').append(`
       <tr class="uk-padding-remove">
         <td class="uk-text-bold">${transaction.reference}</td>
         <td>${transaction.email}</td>
@@ -45,5 +45,44 @@ $(document).on("turbolinks:load", () => {
         <td>${status}</td>
       </tr>
     `);
+  });
+  //change dropdrown label when click dropdown option
+  $('.transactions-filter').on("click", e => {
+    document.getElementById("transactions-dropdown-label").innerHTML = e.currentTarget.innerHTML;
+  });
+  $('#transactions-search-field').on("keyup", e => {
+    searchby = document.getElementById("transactions-dropdown-label").innerHTML;
+    if (searchby == 'Search from' || searchby == 'Reference No') {
+      td_index = 0;
+    }
+    else if (searchby == 'Customer') {
+      td_index = 1;
+    }
+    else if (searchby == 'Method') {
+      td_index = 2;
+    }
+    else if (searchby == 'Amount') {
+      td_index = 3;
+    }
+    else if (searchby == 'Date') {
+      td_index = 4;
+    }
+    else if (searchby == 'Status') {
+      td_index = 5;
+    }
+    input = document.getElementById("transactions-search-field");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("transactions-table");
+    tr = table.getElementsByTagName("tr");
+    $('#transactions-table').removeClass('uk-table-striped');
+    searchData(td_index, input, filter, table, tr);
+  });
+  //ascending descending
+  $('#transactions-asc-dsc-button').on("click", e => {
+    $("tbody").each(function (elem, index) {
+      var arr = $.makeArray($("tr", this).detach());
+      arr.reverse();
+      $(this).append(arr);
+    });
   });
 });

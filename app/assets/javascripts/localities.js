@@ -13,7 +13,6 @@ $(document).on("turbolinks:load", () => {
       superLocale_name = locality.province.superLocale.name
       countryName = locality.province.superLocale.country.countryName
     }
-    console.log(locality)
     $('#localities-table table tbody').append(`
       <tr class="uk-padding-remove">
         <td><img src='${locality.image}' class='localities-images') /></td>
