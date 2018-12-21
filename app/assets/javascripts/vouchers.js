@@ -38,7 +38,6 @@ $(document).on("turbolinks:load", () => {
     }
     fullname = voucher.customer.firstName + " " + voucher.customer.lastName
     let newDateCreated = formatDate(voucher.dateCreated);
-    console.log(voucher);
     $('#vouchers-table table tbody').append(`
       <tr class="uk-padding-remove">
         <td class="uk-text-bold">${voucher.code}</td>
