@@ -18,7 +18,8 @@
         <div class="uk-padding-remove"><button id="lodging-nav-tab1" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Tab1</button></div>
         <div class="uk-padding-remove"><button id="lodging-nav-tab2" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Tab2</button></div>
         <div class="uk-padding-remove"><button id="lodging-nav-tab3" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Tab3</button></div>
-        <div class="uk-padding-remove"><button class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link">ADD New +</a></div>
+        <div class="uk-padding-remove"><button class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link">ADD
+            New +</a></div>
       </div>
     </div>
     <div class="uk-grid uk-width-1-1 uk-margin-remove">
@@ -27,27 +28,18 @@
           <div class=" uk-margin-top uk-padding-remove"><span uk-icon="icon: search"></span></div>
           <div class="uk-inline uk-padding-small">
             <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown"
-              type="button">Search from<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
+              type="button"><span id='lodgings-dropdown-label'>Search from</span><span uk-icon="icon: triangle-down"
+                class="uk-margin-left"></span></button>
             <div uk-dropdown="mode: click" class="uk-padding-small">
-              <li><a href="#" class="dropdown-option">Title</a></li>
-              <li><a href="#" class="dropdown-option">Partner</a></li>
-              <li><a href="#" class="dropdown-option">Category</a></li>
-              <li><a href="#" class="dropdown-option">Sub</a></li>
+              <li><a href="#" class="dropdown-option lodgings-filter">Title</a></li>
+              <li><a href="#" class="dropdown-option lodgings-filter">Partner</a></li>
+              <li><a href="#" class="dropdown-option lodgings-filter">Category</a></li>
+              <li><a href="#" class="dropdown-option lodgings-filter">Sub</a></li>
             </div>
           </div>
-          <div class="uk-form uk-form-width-medium uk-padding-small"><input class="uk-input partners-input" type="text"
-              placeholder="Start typing here..." /></div>
-          <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown"
-              type="button">Filters<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
-            <div uk-dropdown="mode: click" class="uk-padding-small">
-              <li><a href="#" class="dropdown-option">Title</a></li>
-              <li><a href="#" class="dropdown-option">Partner</a></li>
-              <li><a href="#" class="dropdown-option">Category</a></li>
-              <li><a href="#" class="dropdown-option">Sub</a></li>
-            </div>
-          </div>
-          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded">
+          <div class="uk-form uk-form-width-medium uk-padding-small"><input id='lodgings-search-field' class="uk-input partners-input"
+              type="text" placeholder="Start typing here..." /></div>
+          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded asc-dsc-button">
               <%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
         </div>
       </div>
@@ -75,7 +67,7 @@
             <div class="partners-table">
               <div class="content-well p-x-2 p-y-2">
                 <div class="uk-container">
-                  <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  <table id='lodgings-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
                     data-uk-scrollspy="cls:uk-animation-fade;">
                     <thead>
                       <tr>
@@ -214,7 +206,7 @@
             <div class="partners-table">
               <div class="content-well p-x-2 p-y-2">
                 <div class="uk-container">
-                  <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  <table id='lodgings-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
                     data-uk-scrollspy="cls:uk-animation-fade;">
                     <thead>
                       <tr>
@@ -317,7 +309,7 @@
             <div class="partners-table">
               <div class="content-well p-x-2 p-y-2">
                 <div class="uk-container">
-                  <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  <table id='lodgings-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
                     data-uk-scrollspy="cls:uk-animation-fade;">
                     <thead>
                       <tr>
@@ -420,7 +412,7 @@
             <div class="partners-table">
               <div class="content-well p-x-2 p-y-2">
                 <div class="uk-container">
-                  <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  <table id='lodgings-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
                     data-uk-scrollspy="cls:uk-animation-fade;">
                     <thead>
                       <tr>
