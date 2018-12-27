@@ -1,8 +1,16 @@
-<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<% content_for :header do %>
+<%= render 'shared/menu' %>
+<% end %>
+<% content_for :side do %>
+<%= render 'shared/side' %>
+<% end %>
+<% content_for :content do %>
 <div class="main uk-section">
   <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
     <div class="uk-grid uk-margin-remove">
-      <div class="uk-padding-remove"><h2>Travel</h2></div>
+      <div class="uk-padding-remove">
+        <h2>Travel</h2>
+      </div>
     </div>
     <div class="uk-grid uk-margin-remove breadcrumb uk-border-rounded">
       <div class="uk-padding-small uk-margin-remove" uk-grid>
@@ -10,7 +18,8 @@
         <div class="uk-padding-remove"><button id="travel-nav-activities" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Activities</button></div>
         <div class="uk-padding-remove"><button id="travel-nav-lodging" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Lodging</button></div>
         <div class="uk-padding-remove"><button id="travel-nav-transportation" class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link nav-border-right">Transportation</button></div>
-        <div class="uk-padding-remove"><button class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link">ADD New +</a></div>
+        <div class="uk-padding-remove"><button class="uk-button uk-button-small uk-padding uk-padding-remove-top uk-padding-remove-bottom travel-nav-link">ADD
+            New +</a></div>
       </div>
     </div>
     <div class="uk-grid uk-width-1-1 uk-margin-remove">
@@ -18,25 +27,20 @@
         <div class="uk-grid uk-margin-remove uk-width-1-1">
           <div class=" uk-margin-top uk-padding-remove"><span uk-icon="icon: search"></span></div>
           <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Search from<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
+            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown"
+              type="button"><span id='travels-dropdown-label'>Search from</span><span uk-icon="icon: triangle-down"
+                class="uk-margin-left"></span></button>
             <div uk-dropdown="mode: click" class="uk-padding-small">
-              <li><a href="#" class="dropdown-option">Title</a></li>
-              <li><a href="#" class="dropdown-option">Partner</a></li>
-              <li><a href="#" class="dropdown-option">Category</a></li>
-              <li><a href="#" class="dropdown-option">Sub</a></li>
+              <li><a href="#" class="dropdown-option travels-filter">Title</a></li>
+              <li><a href="#" class="dropdown-option travels-filter">Partner</a></li>
+              <li><a href="#" class="dropdown-option travels-filter">Category</a></li>
+              <li><a href="#" class="dropdown-option travels-filter">Sub</a></li>
             </div>
           </div>
-          <div class="uk-form uk-form-width-medium uk-padding-small"><input class="uk-input partners-input" type="text" placeholder="Start typing here..." /></div>
-          <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Filters<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
-            <div uk-dropdown="mode: click" class="uk-padding-small">
-              <li><a href="#" class="dropdown-option">Title</a></li>
-              <li><a href="#" class="dropdown-option">Partner</a></li>
-              <li><a href="#" class="dropdown-option">Category</a></li>
-              <li><a href="#" class="dropdown-option">Sub</a></li>
-            </div>
-          </div>
-          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded"><%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
+          <div class="uk-form uk-form-width-medium uk-padding-small"><input id='travels-search-field' class="uk-input partners-input"
+              type="text" placeholder="Start typing here..." /></div>
+          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded asc-dsc-button">
+              <%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
         </div>
       </div>
     </div>
@@ -45,7 +49,8 @@
         <div class="uk-padding-remove uk-width-1-1">
           <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
             <div class="uk-padding-small localities-panel-header">
-              <span id="table-name">All</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span>Add New Activity</span></button>
+              <span id="table-name">All</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span
+                  uk-icon="icon: plus; ratio: .8"></span><span>Add New Activity</span></button>
               <button class="uk-button-primary uk-button-small uk-float-right uk-margin-right uk-border-rounded"><span>Import</span></button>
             </div>
             <div class="uk-padding-small">
@@ -62,7 +67,8 @@
             <div class="partners-table">
               <div class="content-well p-x-2 p-y-2">
                 <div class="uk-container">
-                  <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
+                  <table id='travels-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                    data-uk-scrollspy="cls:uk-animation-fade;">
                     <thead>
                       <tr>
                         <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Title</th>
@@ -81,7 +87,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -91,7 +99,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -101,7 +111,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -111,7 +123,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -121,7 +135,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -131,7 +147,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -141,7 +159,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -151,7 +171,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                     </tbody>
@@ -166,7 +188,8 @@
         <div class="uk-padding-remove uk-width-1-1">
           <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
             <div class="uk-padding-small localities-panel-header">
-              <span id="table-name">Activities</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span>Add New Activity</span></button>
+              <span id="table-name">Activities</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span
+                  uk-icon="icon: plus; ratio: .8"></span><span>Add New Activity</span></button>
               <button class="uk-button-primary uk-button-small uk-float-right uk-margin-right uk-border-rounded"><span>Import</span></button>
             </div>
             <div class="uk-padding-small">
@@ -183,7 +206,8 @@
             <div class="partners-table">
               <div class="content-well p-x-2 p-y-2">
                 <div class="uk-container">
-                  <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
+                  <table id='travels-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                    data-uk-scrollspy="cls:uk-animation-fade;">
                     <thead>
                       <tr>
                         <th class="uk-text-capitalize"><span uk-icon="icon: triangle-up"></span>Title</th>
@@ -202,7 +226,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -212,7 +238,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -222,7 +250,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -232,7 +262,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                       <tr class="uk-padding-remove">
@@ -242,7 +274,9 @@
                         <td>Crafting Classes</td>
                         <td>APPROVED</td>
                         <td>
-                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button> <button class="uk-border-rounded unlock-button"><%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
+                          <button class="uk-button-primary uk-border-rounded"><span uk-icon="icon: pencil"></span></button>
+                          <button class="uk-border-rounded unlock-button">
+                            <%= image_tag('unlock-icon.png', class: 'uk-icon-image unlock-icon')%></button>
                         </td>
                       </tr>
                     </tbody>
@@ -275,7 +309,7 @@
             <div class="partners-table">
               <div class="content-well p-x-2 p-y-2">
                 <div class="uk-container">
-                  <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  <table id='travels-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
                     data-uk-scrollspy="cls:uk-animation-fade;">
                     <thead>
                       <tr>
@@ -378,7 +412,7 @@
             <div class="partners-table">
               <div class="content-well p-x-2 p-y-2">
                 <div class="uk-container">
-                  <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  <table id='travels-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
                     data-uk-scrollspy="cls:uk-animation-fade;">
                     <thead>
                       <tr>
@@ -459,9 +493,9 @@
           </div>
         </div>
       </div>
-  
-  
-  
+
+
+
     </div>
   </div>
 </div>
