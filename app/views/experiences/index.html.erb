@@ -1,10 +1,19 @@
-<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<% content_for :header do %>
+<%= render 'shared/menu' %>
+<% end %>
+<% content_for :side do %>
+<%= render 'shared/side' %>
+<% end %>
+<% content_for :content do %>
 <div class="main uk-section">
   <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
     <!-- modal -->
     <div id="modal-overflow" uk-modal>
-      <div class="uk-modal-dialog uk-margin-remove-top uk-margin-remove-bottom experience-modal-dialog" uk-overflow-auto>
-        <div class="uk-modal-header"><h2 class="uk-modal-title">Add New Experience</h2></div>
+      <div class="uk-modal-dialog uk-margin-remove-top uk-margin-remove-bottom experience-modal-dialog"
+        uk-overflow-auto>
+        <div class="uk-modal-header">
+          <h2 class="uk-modal-title">Add New Experience</h2>
+        </div>
         <div class="uk-modal-body">
           <form class="uk-form-stacked">
             <div class="uk-grid uk-margin-remove uk-padding-remove uk-width-1-1">
@@ -12,60 +21,63 @@
                 <div>
                   <div class="uk-margin">
                     <label class="uk-form-label uk-text-bold" for="form-stacked-text">Category Name</label>
-                    <div class="uk-form-controls"><input class="uk-input uk-form-width-medium" id="form-stacked-text" type="text" placeholder="Category Name" /></div>
+                    <div class="uk-form-controls"><input class="uk-input uk-form-width-medium" id="form-stacked-text"
+                        type="text" placeholder="Category Name" /></div>
                   </div>
                   <div class="uk-margin">
-                    <label class="uk-form-label uk-text-bold" for="iconimg-output">Icon Image</label><%= image_tag('', id: 'iconimg-output')%>
-                    <div class="js-upload" uk-form-custom><input type="file" id="iconimg" multiple /> <button class="uk-button uk-button-default" type="button" tabindex="-1">UPLOAD</button></div>
+                    <label class="uk-form-label uk-text-bold" for="iconimg-output">Icon Image</label>
+                    <%= image_tag('', id: 'iconimg-output')%>
+                    <div class="js-upload" uk-form-custom><input type="file" id="iconimg" multiple /> <button class="uk-button uk-button-default"
+                        type="button" tabindex="-1">UPLOAD</button></div>
                   </div>
                 </div>
               </div>
               <div class="uk-width-2-3 uk-margin-remove uk-padding-remove">
                 <div class="uk-grid uk-width-1-1 uk-margin-remove uk-padding-remove">
                   <div class="uk-width-1-2 uk-margin-remove uk-padding-remove">
-                    <label class="uk-form-label uk-text-bold" for="landingpageimg-output">Landing Page Image</label><%= image_tag('', id: 'landingpageimg-output')%>
-                    <div class="js-upload" uk-form-custom><input type="file" id="landingpageimg" multiple /> <button class="uk-button uk-button-default" type="button" tabindex="-1">UPLOAD</button></div>
+                    <label class="uk-form-label uk-text-bold" for="landingpageimg-output">Landing Page Image</label>
+                    <%= image_tag('', id: 'landingpageimg-output')%>
+                    <div class="js-upload" uk-form-custom><input type="file" id="landingpageimg" multiple /> <button
+                        class="uk-button uk-button-default" type="button" tabindex="-1">UPLOAD</button></div>
                   </div>
                   <div class="uk-width-1-2 uk-margin-remove uk-padding-remove">
-                    <label class="uk-form-label uk-text-bold" for="categorypageimg-output">Category Page Image</label><%= image_tag('', id: 'categorypageimg-output')%>
-                    <div class="js-upload" uk-form-custom><input type="file" id="categorypageimg" multiple /> <button class="uk-button uk-button-default" type="button" tabindex="-1">UPLOAD</button></div>
+                    <label class="uk-form-label uk-text-bold" for="categorypageimg-output">Category Page Image</label>
+                    <%= image_tag('', id: 'categorypageimg-output')%>
+                    <div class="js-upload" uk-form-custom><input type="file" id="categorypageimg" multiple /> <button
+                        class="uk-button uk-button-default" type="button" tabindex="-1">UPLOAD</button></div>
                   </div>
                 </div>
               </div>
             </div>
           </form>
         </div>
-        <div class="uk-modal-footer uk-text-right"><button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button> <button class="uk-button uk-button-primary" type="button">Save</button></div>
+        <div class="uk-modal-footer uk-text-right"><button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+          <button class="uk-button uk-button-primary" type="button">Save</button></div>
       </div>
     </div>
     <!-- end of modal -->
     <div class="uk-grid uk-margin-remove">
-      <div class="uk-padding-remove"><h2>Experiences</h2></div>
+      <div class="uk-padding-remove">
+        <h2>Experiences</h2>
+      </div>
     </div>
     <div class="uk-grid uk-width-1-1 uk-margin-remove">
       <div class="uk-padding-small">
         <div class="uk-grid uk-margin-remove uk-width-1-1">
           <div class=" uk-margin-top uk-padding-remove"><span uk-icon="icon: search"></span></div>
           <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Search from<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
+            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown"
+              type="button"><span id='experiences-dropdown-label'>Search from</span><span uk-icon="icon: triangle-down"
+                class="uk-margin-left"></span></button>
             <div uk-dropdown="mode: click" class="uk-padding-small">
-              <li><a href="#" class="dropdown-option">Title</a></li>
-              <li><a href="#" class="dropdown-option">Partner</a></li>
-              <li><a href="#" class="dropdown-option">Category</a></li>
-              <li><a href="#" class="dropdown-option">Sub</a></li>
+              <li><a href="#" class="dropdown-option experiences-filter">Category Name</a></li>
+              <li><a href="#" class="dropdown-option experiences-filter">Country</a></li>
             </div>
           </div>
-          <div class="uk-form uk-form-width-medium uk-padding-small"><input class="uk-input partners-input" type="text" placeholder="Start typing here..." /></div>
-          <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Filters<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
-            <div uk-dropdown="mode: click" class="uk-padding-small">
-              <li><a href="#" class="dropdown-option">Title</a></li>
-              <li><a href="#" class="dropdown-option">Partner</a></li>
-              <li><a href="#" class="dropdown-option">Category</a></li>
-              <li><a href="#" class="dropdown-option">Sub</a></li>
-            </div>
-          </div>
-          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded"><%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
+          <div class="uk-form uk-form-width-medium uk-padding-small"><input id='experiences-search-field' class="uk-input partners-input"
+              type="text" placeholder="Start typing here..." /></div>
+          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded asc-dsc-button">
+              <%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
         </div>
       </div>
     </div>
@@ -73,25 +85,32 @@
       <div class="uk-padding-remove uk-width-1-1">
         <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
           <div class="uk-padding-small localities-panel-header">
-            <span>Experiences</span> <a href="#modal-overflow" class="uk-button-primary uk-button-small uk-float-right uk-border-rounded" uk-toggle><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Experience</span></a>
+            <span>Experiences</span> <a href="#modal-overflow" class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"
+              uk-toggle><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Experience</span></a>
           </div>
           <div class="uk-padding small table-content-container">
             <div class="content-well p-x-2 p-y-2">
               <div class="uk-container">
-                <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
+                <table id='experiences-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  data-uk-scrollspy="cls:uk-animation-fade;">
                   <thead>
                     <tr>
                       <th class="uk-text-capitalize table-column-name">Icon Image</th>
-                      <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Landing Page Image</th>
-                      <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Category Page Image</th>
-                      <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Category Name</th>
+                      <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Landing
+                        Page Image</th>
+                      <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Category
+                        Page Image</th>
+                      <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Category
+                        Name</th>
                       <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Country</th>
                       <th class="uk-text-capitalize table-column-name">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="uk-padding-remove">
-                      <td><%= image_tag('earth-icon.png', width:'40') %></td>
+                      <td>
+                        <%= image_tag('earth-icon.png', width:'40') %>
+                      </td>
                       <td></td>
                       <td></td>
                       <td>TRAVEL</td>
@@ -101,7 +120,9 @@
                       </td>
                     </tr>
                     <tr class="uk-padding-remove">
-                      <td><%= image_tag('donut-icon.png', width:'40') %></td>
+                      <td>
+                        <%= image_tag('donut-icon.png', width:'40') %>
+                      </td>
                       <td></td>
                       <td></td>
                       <td>FOOD</td>
@@ -111,7 +132,9 @@
                       </td>
                     </tr>
                     <tr class="uk-padding-remove">
-                      <td><%= image_tag('home-icon.png', width:'40') %></td>
+                      <td>
+                        <%= image_tag('home-icon.png', width:'40') %>
+                      </td>
                       <td></td>
                       <td></td>
                       <td>LODGING</td>
@@ -121,7 +144,9 @@
                       </td>
                     </tr>
                     <tr class="uk-padding-remove">
-                      <td><%= image_tag('bike-icon.png', width:'40') %></td>
+                      <td>
+                        <%= image_tag('bike-icon.png', width:'40') %>
+                      </td>
                       <td></td>
                       <td></td>
                       <td>WELLNESS</td>
@@ -131,7 +156,9 @@
                       </td>
                     </tr>
                     <tr class="uk-padding-remove">
-                      <td><%= image_tag('calendar-icon.png', width:'40') %></td>
+                      <td>
+                        <%= image_tag('calendar-icon.png', width:'40') %>
+                      </td>
                       <td></td>
                       <td></td>
                       <td>EVENT</td>
@@ -141,7 +168,9 @@
                       </td>
                     </tr>
                     <tr class="uk-padding-remove">
-                      <td><%= image_tag('poweroff.png', width:'40') %></td>
+                      <td>
+                        <%= image_tag('poweroff.png', width:'40') %>
+                      </td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -151,7 +180,9 @@
                       </td>
                     </tr>
                     <tr class="uk-padding-remove">
-                      <td><%= image_tag('poweroff.png', width:'40') %></td>
+                      <td>
+                        <%= image_tag('poweroff.png', width:'40') %>
+                      </td>
                       <td>ANGELES</td>
                       <td></td>
                       <td></td>
