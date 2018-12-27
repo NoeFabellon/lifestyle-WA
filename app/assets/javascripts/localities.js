@@ -53,12 +53,4 @@ $(document).on("turbolinks:load", () => {
     $('#localities-table').removeClass('uk-table-striped');
     searchData(td_index, input, filter, table, tr);
   });
-  //ascending descending of data
-  $('#localities-asc-dsc-button').on("click", e => {
-    $("tbody").each(function (elem, index) {
-      var arr = $.makeArray($("tr", this).detach());
-      arr.reverse();
-      $(this).append(arr);
-    });
-  });
 });

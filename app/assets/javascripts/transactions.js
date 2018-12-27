@@ -1,27 +1,4 @@
 $(document).on("turbolinks:load", () => {
-  function formatDate(date) {
-    var monthNames = [
-      "January", "February", "March",
-      "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
-    ];
-    var day = new Date(date).getDate();
-    var monthIndex = new Date(date).getMonth();
-    var year = new Date(date).getFullYear();
-    var hour = new Date(date).getHours();
-    var minute = new Date(date).getMinutes();
-    var amPM = (hour > 11) ? "pm" : "am";
-    if (hour > 12) {
-      hour -= 12;
-    } else if (hour == 0) {
-      hour = "12";
-    }
-    if (minute < 10) {
-      minute = "0" + minute;
-    }
-    return monthNames[monthIndex] + ' ' + day + ', ' + year + " " + hour + ":" + minute + amPM;
-  }
   let transactions = ajax("api/transactions", "", "GET");
   transactions = JSON.parse(transactions.responseText).data;
   transactions.forEach(transaction => {
@@ -76,13 +53,5 @@ $(document).on("turbolinks:load", () => {
     tr = table.getElementsByTagName("tr");
     $('#transactions-table').removeClass('uk-table-striped');
     searchData(td_index, input, filter, table, tr);
-  });
-  //ascending descending
-  $('#transactions-asc-dsc-button').on("click", e => {
-    $("tbody").each(function (elem, index) {
-      var arr = $.makeArray($("tr", this).detach());
-      arr.reverse();
-      $(this).append(arr);
-    });
   });
 });
