@@ -1,33 +1,36 @@
-<% content_for :header do %> <%= render 'shared/menu' %> <% end %> <% content_for :side do %> <%= render 'shared/side' %> <% end %> <% content_for :content do %>
+<% content_for :header do %>
+<%= render 'shared/menu' %>
+<% end %>
+<% content_for :side do %>
+<%= render 'shared/side' %>
+<% end %>
+<% content_for :content do %>
 <div class="main uk-section">
   <div class="uk-container uk-container-expand uk-position-relative uk-margin-large-top uk-padding-small">
     <div class="uk-grid uk-margin-remove">
-      <div class="uk-padding-remove"><h2>Partners</h2></div>
+      <div class="uk-padding-remove">
+        <h2>Partners</h2>
+      </div>
     </div>
     <div class="uk-grid uk-width-1-1 uk-margin-remove">
       <div class="uk-padding-small">
         <div class="uk-grid uk-margin-remove uk-width-1-1">
           <div class=" uk-margin-top uk-padding-remove"><span uk-icon="icon: search"></span></div>
           <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Search from<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
+            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown"
+              type="button"><span id='partners-dropdown-label'>Search from</span><span uk-icon="icon: triangle-down"
+                class="uk-margin-left"></span></button>
             <div uk-dropdown="mode: click" class="option-div-size">
-              <li><a href="#" class="dropdown-option">Business Name</a></li>
-              <li><a href="#" class="dropdown-option">Published Business Name</a></li>
-              <li><a href="#" class="dropdown-option">Partner ID</a></li>
-              <li><a href="#" class="dropdown-option">Date Created</a></li>
+              <li><a href="#" class="dropdown-option partners-filter">Business Name</a></li>
+              <li><a href="#" class="dropdown-option partners-filter">Published Business Name</a></li>
+              <li><a href="#" class="dropdown-option partners-filter">Partner ID</a></li>
+              <li><a href="#" class="dropdown-option partners-filter">Date Created</a></li>
             </div>
           </div>
-          <div class="uk-form uk-form-width-medium uk-padding-small"><input class="uk-input partners-input" type="text" placeholder="Start typing here..." /></div>
-          <div class="uk-inline uk-padding-small">
-            <button class="uk-button uk-padding-small uk-padding-remove-top uk-padding-remove-bottom uk-text-capitalize partners-dropdown" type="button">Filters<span uk-icon="icon: triangle-down" class="uk-margin-left"></span></button>
-            <div uk-dropdown="mode: click" class="option-div-size">
-              <li><a href="#" class="dropdown-option">Business Name</a></li>
-              <li><a href="#" class="dropdown-option">Published Business Name</a></li>
-              <li><a href="#" class="dropdown-option">Partner ID</a></li>
-              <li><a href="#" class="dropdown-option">Date Created</a></li>
-            </div>
-          </div>
-          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded"><%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
+          <div class="uk-form uk-form-width-medium uk-padding-small"><input id='partners-search-field' class="uk-input partners-input"
+              type="text" placeholder="Start typing here..." /></div>
+          <div class="uk-padding-small"><button class="uk-button-primary uk-border-rounded asc-dsc-button">
+              <%= image_tag('updown.png', class: 'uk-icon-image partners-updown-icon')%></button></div>
         </div>
       </div>
     </div>
@@ -35,7 +38,8 @@
       <div class="uk-padding-remove uk-width-1-1">
         <div class="uk-panel uk-margin-remove uk-border-rounded localities-panel">
           <div class="uk-padding-small localities-panel-header">
-            <span>Partners</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span uk-icon="icon: plus; ratio: .8"></span><span> Add New Partner</span></button>
+            <span>Partners</span> <button class="uk-button-primary uk-button-small uk-float-right uk-border-rounded"><span
+                uk-icon="icon: plus; ratio: .8"></span><span> Add New Partner</span></button>
           </div>
           <div class="uk-padding-small">
             <div class="uk-grid uk-margin-remove uk-width-1-1">
@@ -48,13 +52,15 @@
               </div>
             </div>
           </div>
-          <div class="partners-table" id=partners-table>
+          <div class="partners-table">
             <div class="content-well p-x-2 p-y-2">
               <div class="uk-container">
-                <table class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table" data-uk-scrollspy="cls:uk-animation-fade;">
+                <table id='partners-table' class="uk-table uk-table-striped uk-table-middle uk-table-divider uk-table-large localities-table"
+                  data-uk-scrollspy="cls:uk-animation-fade;">
                   <thead>
                     <tr>
-                      <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Business Name</th>
+                      <th class="uk-text-capitalize table-column-name"><span uk-icon="icon: triangle-up"></span>Business
+                        Name</th>
                       <th class="uk-text-capitalize table-column-name">Published Business Name</th>
                       <th class="uk-text-capitalize table-column-name">Partner ID</th>
                       <th class="uk-text-capitalize table-column-name">Date Created</th>
